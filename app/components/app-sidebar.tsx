@@ -43,7 +43,7 @@ export function AppSidebar() {
 	useEffect(() => {
 		async function fetchMetricTypes() {
 			try {
-				const res = await apiFetch("/aggregate-metric-types/");
+				const res = await apiFetch("/aggregate-metric-types");
 				const types: MetricType[] = await res;
 
 				const dynamicItems = types.map((type) => ({
