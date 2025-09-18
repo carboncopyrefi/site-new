@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /sitemap.xml
+
+Sitemap: https://carboncopy.news/sitemap.xml
