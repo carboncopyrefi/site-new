@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import fm from "front-matter";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -22,6 +22,7 @@ const articleFiles = import.meta.glob("../../content/features/*.md", {
 
 export default function AuthorPage() {
   const { slug } = useParams();
+  const location = useLocation();
 
   // find author file
   const entry = Object.entries(authorFiles).find(([path]) =>
@@ -56,7 +57,19 @@ export default function AuthorPage() {
     <>
       {/* React 19 native metadata support */}
       <title>{`${data.title} | CARBON Copy`}</title>
-      {data.description && <meta name="description" content={data.description} />}
+      <meta name="description" content={data.description} />
+      <meta property="og:description" content={data.description} />
+      <meta property="twitter:description" content={data.description} />
+      <meta property="og:title" content={`${data.title} | CARBON Copy`} />
+      <meta property="twitter:title" content={`${data.title} | CARBON Copy`} />
+      <meta property="og:image" content={`https://carboncopy.news${data.mainImage}`} />
+      <meta property="twitter:image" content={`https://carboncopy.news${data.mainImage}`} />
+      <meta property="og:url" content={`https://carboncopy.news${location.pathname}`} />
+      <meta property="og:type" content="website" />
+      <meta property="og:locale" content="en_GB" />
+      <meta property="twitter:card" content="summary_card" />
+      <meta property="twitter:site" content="@cc_refi_news" />
+      <link rel="canonical" href={`https://carboncopy.news${location.pathname}`} />
       
       <div className="container mx-auto px-4 py-8 prose">
 

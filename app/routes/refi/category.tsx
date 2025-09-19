@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
 import { ArrowUpCircle, ArrowDownCircle } from "lucide-react";
+import { H1 } from "~/components/ui/h1";
 
 interface Project {
   slug: string;
@@ -43,6 +44,7 @@ interface CategoryResponse {
 export default function CategoryPage() {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [data, setData] = useState<CategoryResponse | null>(null);
   const [tokens, setTokens] = useState<Token[]>([]);
@@ -86,11 +88,12 @@ export default function CategoryPage() {
       <meta property="twitter:title" content={`${data.metadata.name} | CARBON Copy`} />
       <meta property="og:image" content="https://carboncopy.news/meta.jpg" />
       <meta property="twitter:image" content="https://carboncopy.news/meta.jpg" />
-      <meta property="og:url" content="https://carboncopy.news/meta.jpg" />
+      <meta property="og:url" content={`https://carboncopy.news${location.pathname}`} />
       <meta property="og:type" content="website" />
       <meta property="og:locale" content="en_GB" />
       <meta property="twitter:card" content="summary_large_card" />
       <meta property="twitter:site" content="@cc_refi_news" />
+      <link rel="canonical" href={`https://carboncopy.news${location.pathname}`} />
 
       <div className="container mx-auto px-4 py-6">
 
@@ -106,7 +109,7 @@ export default function CategoryPage() {
 
         {/* Header */}
         <div className="mb-6">
-          <h1 className="text-3xl font-bold">{data.metadata.name}</h1>
+          <H1>{data.metadata.name}</H1>
           <p className="text-lg text-gray-600">{data.metadata.description}</p>
         </div>
 

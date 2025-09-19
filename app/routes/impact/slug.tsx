@@ -1,7 +1,8 @@
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { ArrowUpCircle, ArrowDownCircle } from "lucide-react";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { apiFetch } from "../../api/client";
+import { H1 } from "~/components/ui/h1";
 import {
   CartesianGrid,
   Line,
@@ -23,6 +24,7 @@ export default function AggregateMetricPage() {
   const { slug } = useParams();
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
   
 useEffect(() => {
@@ -66,10 +68,10 @@ useEffect(() => {
     const isZero = value === 0;
 
     const color = isZero
-      ? "text-yellow-500"
+      ? "text-yellow-600"
       : isPositive
-      ? "text-green-500"
-      : "text-red-500";
+      ? "text-green-600"
+      : "text-red-600";
 
     const ArrowIcon = () => {
       if (isZero) {
@@ -105,17 +107,18 @@ useEffect(() => {
       <meta property="twitter:title" content={`${data.type_name} | CARBON Copy`} />
       <meta property="og:image" content="https://carboncopy.news/meta.jpg" />
       <meta property="twitter:image" content="https://carboncopy.news/meta.jpg" />
-      <meta property="og:url" content="https://carboncopy.news/meta.jpg" />
+      <meta property="og:url" content={`https://carboncopy.news${location.pathname}`} />
       <meta property="og:type" content="website" />
       <meta property="og:locale" content="en_GB" />
       <meta property="twitter:card" content="summary_large_card" />
       <meta property="twitter:site" content="@cc_refi_news" />
+      <link rel="canonical" href={`https://carboncopy.news${location.pathname}`} />
 
       <div className="flex flex-1 flex-col gap-4 p-4 overflow-x-hidden relative">
         <div>
-          <h1 className="md:text-[32px] text-[17px] font-[600]">
+          <H1>
             {data.type_name}
-          </h1>
+          </H1>
           <div className="grid auto-rows-min gap-4 grid-cols-1 xl:grid-cols-[1.4fr_1fr]">
             {/* Chart */}
             <div className="h-100 rounded-xl bg-muted/50 p-2 min-w-0 overflow-hidden">

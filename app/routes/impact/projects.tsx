@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { buildMeta } from "~/root"
 import { apiFetch } from "../../api/client";
+import { H1 } from "~/components/ui/h1";
 
 interface ProjectData {
 	name: string;
@@ -58,9 +59,9 @@ export default function Projects() {
 	return (
 	<div className="flex flex-1 flex-col gap-4 p-4 overflow-x-hidden relative">
 		<div>
-			<h1 className="md:text-[32px] text-[17px] font-[600]">
+			<H1>
 				Projects Integrated
-			</h1>
+			</H1>
 			{/* Fixed grid layout - single column on mobile, proper sizing on desktop */}
 			<div className="grid auto-rows-min gap-4 grid-cols-1 md:grid-cols-3">
 				{projects.map((item) => (

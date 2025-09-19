@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ArrowUpCircle, ArrowDownCircle } from "lucide-react";
 import { buildMeta } from "~/root"
+import { H1 } from "~/components/ui/h1";
 
 const url = "https://carboncopy.news/refi/tokens";
 
@@ -91,19 +92,17 @@ export default function Tokens() {
   }
 
   return (
-    <div className="flex flex-1 flex-col gap-4 p-4 overflow-x-hidden relative">
-      <div className="flex justify-between items-center">
-        <h1 className="md:text-[32px] text-[17px] font-[600]">
+    <div className="flex flex-1 flex-col gap-6 p-4 overflow-x-hidden relative">
+        <H1>
           Tokens ({tokens.length})
-        </h1>
+        </H1>
         <input
           type="text"
           placeholder="Search by project or symbol..."
-          className="border rounded-md px-3 py-1 text-sm"
+          className="border rounded-md px-2 py-1 text-md w-full md:w-1/3"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-      </div>
 
       <div className="overflow-x-auto rounded-lg border shadow">
         <table className="min-w-full divide-y divide-gray-200 text-sm">

@@ -1,4 +1,5 @@
 import { buildMeta } from "~/root"
+import { H1 } from "~/components/ui/h1";
 import {
 	CartesianGrid,
 	Line,
@@ -94,7 +95,7 @@ export default function Chains() {
 	return (
 		<div className="flex flex-1 flex-col gap-4 p-4 overflow-x-hidden relative">
 			<div>
-				<h1 className="md:text-[32px] text-[17px] font-[600]">Chains</h1>
+				<H1>Chains</H1>
 				{/* Fixed grid layout - single column on mobile, proper sizing on desktop */}
 				<div className="grid auto-rows-min gap-4 grid-cols-1 md:grid-cols-[1.3fr_1fr]">
 					{/* Line Chart Container - Fixed width constraints */}

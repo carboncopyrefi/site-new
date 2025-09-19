@@ -13,6 +13,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "~/components/ui/chart";
+import { H1 } from "~/components/ui/h1";
 
 const url = "https://carboncopy.news/refi/tokens";
 
@@ -78,9 +79,9 @@ export default function VentureFunding() {
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 overflow-x-hidden relative">
       <div>
-        <h1 className="md:text-[32px] text-[17px] font-[600]">
+        <H1>
           Venture Funding
-        </h1>
+        </H1>
 
         {/* Grid layout */}
         <div className="grid auto-rows-min gap-4 grid-cols-1 md:grid-cols-[1.3fr_1fr]">

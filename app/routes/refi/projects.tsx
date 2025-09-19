@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { buildMeta } from "~/root"
+import { buildMeta } from "~/root";
+import { H1 } from "~/components/ui/h1";
 
 const url = "https://carboncopy.news/refi/landscape";
 
 export function links() {
   return [{
     rel: "canonical",
-    href: url
+    href: url,
   }];
-};
+}
 
 export function meta() {
   return [
@@ -17,9 +18,9 @@ export function meta() {
       "ReFi Landscape",
       "See an overview of projects and categories in the Web3 regenerative finance (ReFi) ecosystem.",
       url,
-    )
+    ),
   ];
-};
+}
 
 interface Project {
   logo: string;
@@ -34,6 +35,7 @@ interface Category {
 
 export default function Landscape() {
   const [data, setData] = useState<Category[]>([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     async function fetchData() {
@@ -48,20 +50,46 @@ export default function Landscape() {
     fetchData();
   }, []);
 
-  // helper to slugify category name
   function slugify(name: string) {
     return name.toLowerCase().replace(/\s+/g, "-");
   }
 
+  // filter categories + projects based on search
+  const filteredData = data
+    .map((cat) => {
+      const filteredProjects = cat.projects.filter((proj) =>
+        proj.name.toLowerCase().includes(search.toLowerCase())
+      );
+      // show category if search matches category OR any project
+      if (
+        cat.category.toLowerCase().includes(search.toLowerCase()) ||
+        filteredProjects.length > 0
+      ) {
+        return { ...cat, projects: filteredProjects };
+      }
+      return null;
+    })
+    .filter((cat): cat is Category => cat !== null);
+
   return (
     <div className="flex flex-1 flex-col gap-6 p-4 overflow-x-hidden relative">
-      <h1 className="md:text-[32px] text-[17px] font-[600]">Landscape</h1>
+      <H1>Landscape</H1>
+      <input
+        type="text"
+        placeholder="Search projects or categories..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="border rounded-md px-2 py-1 text-md w-full md:w-1/3"
+      />
+
 
       {data.length === 0 ? (
-        <p className="text-neutral-500">Loading...</p>
+        <p className="text-neutral-500">Loading landscape...</p>
+      ) : filteredData.length === 0 ? (
+        <p className="text-neutral-500">No results found.</p>
       ) : (
         <div className="flex flex-col gap-8">
-          {data.map((cat, idx) => (
+          {filteredData.map((cat, idx) => (
             <div key={idx} className="flex flex-col gap-3 mb-4">
               <h3 className="font-semibold text-lg">
                 <Link
@@ -74,11 +102,8 @@ export default function Landscape() {
               <div className="flex flex-wrap gap-4">
                 {cat.projects.map((proj, pIdx) =>
                   proj.logo ? (
-                    <Link
-                      to={`../projects/${proj.slug}`}
-                    >
+                    <Link key={pIdx} to={`../projects/${proj.slug}`}>
                       <img
-                        key={pIdx}
                         src={proj.logo}
                         alt={proj.name}
                         title={proj.name}

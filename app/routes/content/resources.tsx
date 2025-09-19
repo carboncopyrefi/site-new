@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { buildMeta } from "~/root"
 import { iconMap } from "~/components/icons"
+import { H1 } from "~/components/ui/h1";
 
 // Type for the API response
 interface Resource {
@@ -117,15 +118,15 @@ export default function Resources() {
     <div className="flex flex-1 flex-col gap-4 p-4 overflow-x-hidden relative">
       {/* Header */}
       <div className="flex justify-between items-center">
-        <h1 className="md:text-[32px] text-[17px] font-[600]">
+        <H1>
           Resources ({filteredResources.length})
-        </h1>
+        </H1>
       </div>
 
       {/* Filters */}
       <div className="flex flex-wrap gap-3 items-center">
         <select
-          className="border rounded-md px-3 py-1 text-sm"
+          className="border rounded-md px-3 py-1 text-md"
           value={selectedTopic}
           onChange={(e) => setSelectedTopic(e.target.value)}
         >
@@ -138,7 +139,7 @@ export default function Resources() {
         </select>
 
         <select
-          className="border rounded-md px-3 py-1 text-sm"
+          className="border rounded-md px-3 py-1 text-md"
           value={selectedMedium}
           onChange={(e) => setSelectedMedium(e.target.value)}
         >
@@ -151,7 +152,7 @@ export default function Resources() {
         </select>
 
         <button
-          className="px-4 py-1 border rounded-md text-sm bg-gray-50 hover:bg-gray-100"
+          className="px-4 py-1 border rounded-md text-md bg-gray-50 hover:bg-gray-100"
           onClick={() => {
             setSearch("");
             setSelectedTopic("");
@@ -164,7 +165,7 @@ export default function Resources() {
         <input
           type="text"
           placeholder="Search by title, topic, or source..."
-          className="border rounded-md px-3 py-1 text-sm"
+          className="border rounded-md px-3 py-1 text-md"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -172,10 +173,10 @@ export default function Resources() {
 
       {/* Table */}
       <div className="overflow-x-auto rounded-lg border shadow">
-        <table className="min-w-full divide-y divide-gray-200 text-sm">
+        <table className="min-w-full divide-y divide-gray-200 text-sm table-auto">
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-4 py-2 text-left">Medium</th>
+              <th className="px-4 py-2 text-left"></th>
               <th
                 className="px-4 py-2 text-left cursor-pointer"
                 onClick={() => sortBy("title")}
@@ -196,10 +197,10 @@ export default function Resources() {
           <tbody className="divide-y divide-gray-100 bg-white">
             {paginatedResources.map((r, idx) => (
               <tr key={idx}>
-                <td className="px-4 py-2 justify-center flex">
+                <td className="justify-center flex items-center px-4 py-2">
                   {iconMap[r.medium[0].icon.toLowerCase()] ?? r.medium[0].icon}
-                </td>
-                <td className="px-4 py-2">
+                </td> 
+                <td className="pe-4 py-2">
                   <a
                     href={r.link}
                     target="_blank"

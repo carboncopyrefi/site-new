@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { buildMeta } from "~/root"
+import { H1 } from "~/components/ui/h1";
 
 interface Newsletter {
   _path: string;
@@ -51,7 +52,7 @@ export default function NewsletterPage() {
   return (
     <div className="flex flex-col gap-6 p-4">
       {/* Heading */}
-      <h1 className="md:text-[32px] text-[17px] font-[600]">The CARBON Copy Newsletter</h1>
+      <H1>The CARBON Copy Newsletter</H1>
 
       {/* Cards Grid (3 per row) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

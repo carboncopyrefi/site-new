@@ -1,5 +1,3 @@
-# About CARBON Copy
-
 **CARBON Copy is the preeminent source of ReFi news, information, and analysis.**
 
 We fill the information void in Web3 regenerative finance (ReFi) by providing news, education, expert analysis, industry reports, and data to help industry stakeholders better understand the space and to get projects more exposure.

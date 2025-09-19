@@ -60,6 +60,7 @@ export default function FeatureArticle() {
       <meta property="og:locale" content="en_GB" />
       <meta property="twitter:card" content="summary_large_card" />
       <meta property="twitter:site" content="@cc_refi_news" />
+      <link rel="canonical" href={`https://carboncopy.news${location.pathname}`} />
 
 
       <div className="container mx-auto px-4 py-8 prose">

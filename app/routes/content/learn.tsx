@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import fm from "front-matter";
 import { buildMeta } from "~/root"
 import { Link } from "react-router-dom";
+import { H1 } from "~/components/ui/h1";
 
 const url = "https://carboncopy.news/content/learn";
 
@@ -74,7 +75,7 @@ export default function LearnPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="md:text-[32px] text-[17px] font-[600] mb-8">Learn</h1>
+      <H1 className="mb-8">Learn</H1>
 
       <div className="divide-y divide-gray-200">
         {features.map((feature, i) => (

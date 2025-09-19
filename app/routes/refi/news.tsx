@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { buildMeta } from "~/root"
+import { H1 } from "~/components/ui/h1";
 
 const url = "https://carboncopy.news/refi/news";
 
@@ -59,20 +60,18 @@ export default function News() {
   }, [search, news]);
 
   return (
-    <div className="flex flex-1 flex-col p-4 overflow-x-hidden relative">
-      <div className="flex items-center justify-between mb-4">
-        <h1 className="md:text-[32px] text-[17px] font-[600]">ReFi News</h1>
+    <div className="flex flex-1 flex-col p-4 gap-6 overflow-x-hidden relative">
+        <H1>ReFi News</H1>
         <input
           type="text"
           placeholder="Search news..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="border rounded-md px-2 py-1 text-sm"
+          className="border rounded-md px-2 py-1 text-md w-full md:w-1/3"
         />
-      </div>
 
       {filtered.length === 0 ? (
-        <p className="text-neutral-500">No news found.</p>
+        <p className="text-neutral-500">Loading news...</p>
       ) : (
         <div className="divide-y divide-gray-200">
           {filtered.map((item, idx) => (

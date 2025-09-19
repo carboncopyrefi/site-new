@@ -16,6 +16,7 @@ import {
 	SidebarMenu,
 	SidebarMenuButton,
 	SidebarMenuItem,
+	useSidebar
 } from "~/components/ui/sidebar";
 
 type MetricType = {
@@ -39,6 +40,7 @@ type SidebarData = {
 export function AppSidebar() {
 	const [sidebarData, setSidebarData] = useState<SidebarData | null>(null);
 	const [loading, setLoading] = useState(true);
+	const { isMobile, setOpenMobile } = useSidebar();
 
 	useEffect(() => {
 		async function fetchMetricTypes() {
@@ -64,7 +66,7 @@ export function AppSidebar() {
 							title: "ReFi",
 							url: "/refi",
 							isCollapsible: true,
-							items: [{ title: "Landscape", url: "/landscape" }, { title: "Tokens", url: "/tokens" }, { title: "News", url: "/news" }, { title: "Venture Funding", url: "/venture-funding" }],
+							items: [{ title: "Projects", url: "/projects" }, { title: "Tokens", url: "/tokens" }, { title: "News", url: "/news" }, { title: "Venture Funding", url: "/venture-funding" }],
 						},
 						{
 							title: "Content",
@@ -153,6 +155,9 @@ export function AppSidebar() {
 																	<NavLink
 																		to={item.url + subItem.url}
 																		className="flex justify-between items-center"
+																		onClick={() => {
+																			if (isMobile) setOpenMobile(false);
+																		}}
 																	>
 																		{({ isPending, isActive }) => (
 																			<>

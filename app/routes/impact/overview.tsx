@@ -3,6 +3,7 @@ import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { Info, ArrowUpCircle, ArrowDownCircle } from "lucide-react";
 import { buildMeta } from "~/root"
 import { apiFetch } from "../../api/client";
+import { H1 } from "~/components/ui/h1";
 import {
   LineChart,
   Line,
@@ -58,9 +59,12 @@ export default function Overview() {
 
   return (
     <div className="flex flex-1 flex-col gap-4 p-4">
+      <H1>
+        Impact Overview
+      </H1>
       <div className="grid auto-rows-min gap-4 grid-cols-1 xl:grid-cols-[1.4fr_1fr]">
         {/* Chart */}
-        <div className="h-100 rounded-xl bg-muted/50 p-2 min-w-0 overflow-hidden text-xs">
+        <div className="h-100 rounded-xl bg-muted/50 p-2 min-w-0 overflow-hidden text-xs order-2 xl:order-1">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart 
               data={timeseries}
@@ -91,7 +95,7 @@ export default function Overview() {
             </LineChart>
           </ResponsiveContainer>
         </div>
-        <div className="xl:h-100 rounded-xl bg-muted/50 md:p-6 p-3 md:space-y-4 space-y-3">
+        <div className="xl:h-100 rounded-xl bg-muted/50 md:p-6 p-3 md:space-y-4 space-y-3 order-1 xl:order-2">
           <div className="mb-1">
             <h2 className={`md:text-[20px] text-[17px]`}>
               Total Funding to Impact Projects
@@ -134,7 +138,7 @@ export default function Overview() {
               )}
             </div>
           </div>
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 gap-6 w-full">
             <div>
               <p className={`text-[18px]`}>Investments</p>
               <p className={`font-semibold text-[20px]`}>
@@ -154,7 +158,9 @@ export default function Overview() {
                       {investment.change7d}%
                     </span>
                   ) : (
-                    <span>&nbsp;</span>
+                    <span className="text-yellow-600 inline-flex items-center gap-1">
+                      {investment.change7d}%
+                    </span>
                   )}
                 </span>
                 <span className="md:text-sm text-xs flex items-center gap-1">
@@ -170,7 +176,9 @@ export default function Overview() {
                       {investment.change28d}%
                     </span>
                   ) : (
-                    <span>&nbsp;</span>
+                    <span className="text-yellow-600 inline-flex items-center gap-1">
+                      {investment.change28d}%
+                    </span>
                   )}
                 </span>
               </div>
@@ -194,7 +202,9 @@ export default function Overview() {
                       {grants.change7d}%
                     </span>
                   ) : (
-                    <span>&nbsp;</span>
+                    <span className="text-yellow-600 inline-flex items-center gap-1">
+                      {grants.change7d}%
+                    </span>
                   )}
                 </span>
                 <span className="md:text-sm text-xs flex items-center gap-1">
@@ -210,7 +220,9 @@ export default function Overview() {
                       {grants.change28d}%
                     </span>
                   ) : (
-                    <span>&nbsp;</span>
+                    <span className="text-yellow-600 inline-flex items-center gap-1">
+                      {grants.change28d}%
+                    </span>
                   )}
                 </span>
               </div>
@@ -234,7 +246,9 @@ export default function Overview() {
                       {loans.change7d}%
                     </span>
                   ) : (
-                    <span>&nbsp;</span>
+                    <span className="text-yellow-600 inline-flex items-center gap-1">
+                      {loans.change7d}%
+                    </span>
                   )}
                 </span>
                 <span className="md:text-sm text-xs flex items-center gap-1">
@@ -250,7 +264,9 @@ export default function Overview() {
                       {loans.change28d}%
                     </span>
                   ) : (
-                    <span>&nbsp;</span>
+                    <span className="text-yellow-600 inline-flex items-center gap-1">
+                      {loans.change28d}%
+                    </span>
                   )}
                 </span>
               </div>

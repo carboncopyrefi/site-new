@@ -1,5 +1,5 @@
 import { SiX, SiGithub, SiDiscord, SiFacebook, SiTelegram, SiInstagram, SiLinkedin, SiMedium, SiTiktok, SiYoutube } from "react-icons/si";
-import { BsGlobe, BsPencilSquare, BsFileTextFill, BsBroadcastPin, BsBoundingBoxCircles, BsMicFill, BsCameraVideoFill } from "react-icons/bs";
+import { BsGlobe, BsPencilSquare, BsFileTextFill, BsBroadcastPin, BsBoundingBoxCircles, BsMicFill, BsCameraVideoFill, BsNewspaper, BsSignpostFill } from "react-icons/bs";
 
 export const iconMap: Record<string, JSX.Element> = {
   "twitter-x": <SiX className="w-5 h-5" />,
@@ -19,4 +19,6 @@ export const iconMap: Record<string, JSX.Element> = {
   "bounding-box-circles": <BsBoundingBoxCircles className="w-5 h-5" />,
   "mic-fill": <BsMicFill className="w-5 h-5" />,
   "camera-video-fill": <BsCameraVideoFill className="w-5 h-5" />,
+  "milestone": <BsSignpostFill className="w-5 h-5" />,
+  "update": <BsNewspaper className="w-5 h-5" />,
 };

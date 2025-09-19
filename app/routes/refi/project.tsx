@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLoaderData, useParams, Link } from "react-router-dom";
+import { useLoaderData, useParams, useLocation, Link } from "react-router-dom";
 import Modal from "~/components/modal";
 import { ArrowUpCircle, ArrowDownCircle, ChevronDown, ChevronUp, Info } from "lucide-react";
 import { iconMap } from "~/components/icons"
@@ -55,6 +55,7 @@ const fmtUSD = new Intl.NumberFormat("en-US", {
 export default function ProjectPage() {
   const data = useLoaderData() as Project; // from loader
   const { slug } = useParams();
+  const location = useLocation();
 
   // client-side “content” fetch
   const [content, setContent] = useState<ProjectContent | null>(null);
@@ -102,13 +103,14 @@ export default function ProjectPage() {
         {data.description_short && <meta property="twitter:description" content={data.description_short} />}
         <meta property="og:title" content={`${data.name} | CARBON Copy`} />
         <meta property="twitter:title" content={`${data.name} | CARBON Copy`} />
-        <meta property="og:image" content={data.logo} />
-        <meta property="twitter:image" content={data.logo} />
-        <meta property="og:url" content={data.logo} />
+        <meta property="og:image" content={`https://carboncopy.news${data.logo}`} />
+        <meta property="twitter:image" content={`https://carboncopy.news${data.logo}`} />
+        <meta property="og:url" content={`https://carboncopy.news${location.pathname}`} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
         <meta property="twitter:card" content="summary_card" />
         <meta property="twitter:site" content="@cc_refi_news" />
+        <link rel="canonical" href={`https://carboncopy.news${location.pathname}`} />
         
         <div className="p-4">
         {/* Back */}
@@ -208,9 +210,9 @@ export default function ProjectPage() {
             <section className="rounded-lg border bg-white p-4">
                 <h2 className="text-lg font-semibold mb-4">Impact</h2>
 
-                {contentState === "loading" && <p>Loading impact…</p>}
+                {contentState === "loading" && <p className="text-sm">Loading impact…</p>}
                 {contentState === "error" && (
-                    <p className="text-red-600">Failed to load impact.</p>
+                    <p className="text-red-600 text-sm">Failed to load impact.</p>
                 )}
                 {contentState === "success" && (
                     <>
@@ -261,7 +263,7 @@ export default function ProjectPage() {
                             {/* Text impact */}
                             {impact.type === "text" ? (
                                 <>
-                                <div className="px-3 py-3 flex-1">
+                                <div className="px-3 py-3 flex-1 text-sm">
                                     <span>
                                     {impact.name.length > 200
                                         ? impact.name.slice(0, 200) + "…"
@@ -305,7 +307,7 @@ export default function ProjectPage() {
                         ))}
                         </div>
                     ) : (
-                        <p className="text-neutral-600">No impact data available.</p>
+                        <p className="text-neutral-600 text-sm">No impact data available.</p>
                     )}
                     </>
                 )}
@@ -317,22 +319,24 @@ export default function ProjectPage() {
                     <h2 className="text-lg font-semibold mb-2">Activity</h2>
 
                     <div className="overflow-x-auto">
-                    <table className="table-auto w-full border">
+                    <table className="table-auto w-full border text-sm">
                         <thead>
                         <tr className="bg-neutral-100 text-left">
-                            <th className="p-2 border">Type</th>
-                            <th className="p-2 border w-1/2">Name</th>
-                            <th className="p-2 border">Due Date</th>
-                            <th className="p-2 border">Status</th>
-                            <th className="p-2 border"></th>
+                            <th className="p-2"></th>
+                            <th className="py-2 pe-2">Name</th>
+                            <th className="p-2">Due Date</th>
+                            <th className="p-2">Status</th>
+                            <th className="p-2"></th>
                         </tr>
                         </thead>
                         <tbody>
                         {(showAll ? content.activity : content.activity.slice(0, 10)).map(
                             (m: any, idx: number) => (
                             <tr key={idx} className="border-t">
-                                <td className="p-2">{m.type}</td>
-                                <td className="p-2">{m.name}</td>
+                                <td className="p-2">
+                                    {iconMap[m.type.toLowerCase()] ?? m.type}
+                                </td>
+                                <td className="py-2 pe-2">{m.name}</td>
                                 <td className="p-2">{m.due_date}</td>
                                 <td className="p-2">
                                 {m.status === "Overdue" && (
@@ -410,21 +414,21 @@ export default function ProjectPage() {
                 {contentState === "loading" && (
                 <section className="rounded-lg border bg-white p-4">
                     <h2 className="text-lg font-semibold mb-2">Activity</h2>
-                    <p>Loading activity…</p>
+                    <p className="text-sm">Loading activity…</p>
                 </section>
                 )}
 
                 {contentState === "error" && (
                 <section className="rounded-lg border bg-white p-4">
                     <h2 className="text-lg font-semibold mb-2">Activity</h2>
-                    <p className="text-red-600">Failed to load activity.</p>
+                    <p className="text-red-600 text-sm">Failed to load activity.</p>
                 </section>
                 )}
 
                 {contentState === "success" && !content?.activity?.length && (
                 <section className="rounded-lg border bg-white p-4">
                     <h2 className="text-lg font-semibold mb-2">Activity</h2>
-                    <p className="text-neutral-600">No milestones added.</p>
+                    <p className="text-neutral-600 text-sm">No milestones added.</p>
                 </section>
                 )}
 
@@ -466,14 +470,14 @@ export default function ProjectPage() {
                 {contentState === "loading" && (
                 <section className="rounded-lg border bg-white p-4">
                     <h2 className="text-lg font-semibold mb-2">Content</h2>
-                    <p>Loading content feed…</p>
+                    <p className="text-sm">Loading content feed…</p>
                 </section>
                 )}
 
                 {contentState === "error" && (
                 <section className="rounded-lg border bg-white p-4">
                     <h2 className="text-lg font-semibold mb-2">Content</h2>
-                    <p className="text-red-600">Failed to load content feed.</p>
+                    <p className="text-red-600 text-sm">Failed to load content feed.</p>
                 </section>
                 )}
 
@@ -525,7 +529,7 @@ export default function ProjectPage() {
                 {contentState === "success" && (
                     <>
                     {!content?.fundraising?.length ? (
-                        <p className="text-neutral-600">No fundraising data available.</p>
+                        <p className="text-neutral-600 text-sm">No fundraising data available.</p>
                     ) : (
                         <table className="table-auto w-full border-collapse border text-sm">
                         <thead>
@@ -586,9 +590,9 @@ export default function ProjectPage() {
                 <h2 className="text-lg font-semibold mb-4">Founders</h2>
 
                 {!data?.founder?.length ? (
-                    <p className="text-neutral-600">No founders added</p>
+                    <p className="text-neutral-600 text-sm">No founders added</p>
                 ) : (
-                    <div className="space-y-4">
+                    <div className="space-y-4 text-sm">
                     {data.founder.map((person: any, idx: number) => (
                         <div key={idx}>
                         <span className="font-medium">{person.name}</span>
@@ -654,7 +658,7 @@ export default function ProjectPage() {
                 {contentState === "loading" && (
                 <section className="rounded-lg border bg-white p-4">
                     <h2 className="text-lg font-semibold mb-2">Token</h2>
-                    <p>Loading token…</p>
+                    <p className="text-sm">Loading token(s)…</p>
                 </section>
                 )}
 
@@ -662,9 +666,9 @@ export default function ProjectPage() {
                     <h2 className="text-lg font-semibold mb-4">Latest News</h2>
 
                     {!data?.news?.length ? (
-                        <p className="text-neutral-600">No news added</p>
+                        <p className="text-neutral-600 text-sm">No news added</p>
                     ) : (
-                        <div className="space-y-4">
+                        <div className="space-y-4 text-sm">
                         {data.news.slice(0, 5).map((article: any, idx: number) => (
                             <div key={idx}>
                             <small className="text-gray-500">{article.date}</small>
@@ -688,25 +692,25 @@ export default function ProjectPage() {
                     <h2 className="text-lg font-semibold mb-4">Media Coverage</h2>
 
                     {!data?.coverage?.length ? (
-                        <p className="text-neutral-600">No coverage added</p>
+                        <p className="text-neutral-600 text-sm">No coverage added</p>
                     ) : (
                         <div className="space-y-4">
                         {data.coverage.map((article: any, idx: number) => (
-                            <div key={idx}>
-                            <span className="text-gray-700">
-                                {article.publication} |{" "}
-                                <small className="text-gray-500">{article.date}</small>
-                            </span>
-                            <Link
-                                to={article.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block text-gray-900 hover:underline"
-                            >
-                                <p className="font-semibold inline-flex items-center gap-1">
-                                {article.headline}
-                                </p>
-                            </Link>
+                            <div key={idx} className="text-sm">
+                                <span className="text-gray-700">
+                                    {article.publication} |{" "}
+                                    <small className="text-gray-500">{article.date}</small>
+                                </span>
+                                <Link
+                                    to={article.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block text-gray-900 hover:underline"
+                                >
+                                    <p className="font-semibold inline-flex items-center gap-1">
+                                    {article.headline}
+                                    </p>
+                                </Link>
                             </div>
                         ))}
                         </div>

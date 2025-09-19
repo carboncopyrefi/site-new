@@ -23,7 +23,7 @@ export default [
 	route("about", "routes/about.tsx"),
 	route("refi", "routes/refi/refi.tsx", [
 		index("routes/refi/index.tsx"),
-		route("landscape", "routes/refi/landscape.tsx"),
+		route("projects", "routes/refi/projects.tsx"),
 		route("projects/:slug", "routes/refi/project.tsx"),
 		route("categories/:slug", "routes/refi/category.tsx"),
 		route("tokens", "routes/refi/tokens.tsx"),
