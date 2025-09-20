@@ -42,7 +42,7 @@
     },
     {
       "source": "/learn/",
-      "destination": "/content/learn/:slug",
+      "destination": "/content/learn",
       "permanent": true
     },
     {
@@ -52,17 +52,12 @@
     },
     {
       "source": "/dashboard/",
-      "destination": "/content/learn/:slug",
+      "destination": "/impact/overview",
       "permanent": true
     },
     {
       "source": "/this-week-in-refi/",
       "destination": "/content/newsletter",
-      "permanent": true
-    },
-    {
-      "source": "/reports/:slug/",
-      "destination": "/content/reports",
       "permanent": true
     }
   ]
