@@ -16,9 +16,13 @@ yarn-error.log*
 
 # local env files
 .env.*
+.env
 
 # vercel
 .vercel
 
 # VS Code
 .vscode
+
+# sitemap
+/public/sitemap.xml

@@ -27,8 +27,8 @@ export function links() {
 export function meta() {
   return [
     buildMeta(
-      "ReFi Impact Dashboard",
-      "A data-driven tool to understand the ecological and social impact being made by Web3 regenerative finance (ReFi) projects.",
+      "ReFi Intelligence Platform",
+      "A data-driven tool tracking the Web3 regenerative finance (ReFi) ecosystem.",
       url,
     )
   ];

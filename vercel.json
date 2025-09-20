@@ -1,0 +1,69 @@
+{
+  "redirects": [
+    {
+      "source": "/project/:slug/",
+      "destination": "/refi/projects/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/projects/",
+      "destination": "/refi/projects",
+      "permanent": true
+    },
+    {
+      "source": "/landscape/",
+      "destination": "/refi/projects",
+      "permanent": true
+    },
+    {
+      "source": "/project/tokens/",
+      "destination": "/refi/tokens",
+      "permanent": true
+    },
+    {
+      "source": "/projects/knowledge/",
+      "destination": "/refi/resources/",
+      "permanent": true
+    },
+    {
+      "source": "/category/:slug/",
+      "destination": "/refi/categories/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/features/",
+      "destination": "/content/features",
+      "permanent": true
+    },
+    {
+      "source": "/features/:slug/",
+      "destination": "/content/features/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/learn/",
+      "destination": "/content/learn/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/learn/:slug/",
+      "destination": "/content/learn/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/dashboard/",
+      "destination": "/content/learn/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/this-week-in-refi/",
+      "destination": "/content/newsletter",
+      "permanent": true
+    },
+    {
+      "source": "/reports/:slug/",
+      "destination": "/content/reports",
+      "permanent": true
+    }
+  ]
+}

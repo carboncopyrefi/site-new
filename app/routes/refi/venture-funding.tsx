@@ -7,6 +7,7 @@ import {
   LineChart,
   ResponsiveContainer,
   XAxis,
+  YAxis,
 } from "recharts";
 import {
   ChartContainer,
@@ -107,6 +108,10 @@ export default function VentureFunding() {
                     cursor={false}
                     content={<ChartTooltipContent />}
                   />
+                  <YAxis
+                    tickFormatter={(value) => "$" + value.toLocaleString()}
+                    width={"auto"}
+                  />
                   <Line
                     dataKey="y"
                     type="monotone"
@@ -122,7 +127,7 @@ export default function VentureFunding() {
           {/* Current Year Deals Table */}
           <div className="h-82 rounded-xl bg-muted/50 p-4 md:p-6 min-w-0 overflow-hidden">
             <h3 className="font-semibold mb-2 text-center">Deals This Year</h3>
-            <table className="w-full text-sm">
+            <table className="w-full">
               <thead>
                 <tr className="text-left">
                   <th className="py-1">Project</th>
@@ -180,11 +185,11 @@ export default function VentureFunding() {
       <div className="h-fit w-full min-h-[100vh] flex flex-col flex-1 md:min-h-min space-y-2">
         <h2 className="text-[22px] font-bold">Projects</h2>
         <div className="flex-1 rounded-xl bg-muted/50 p-6 overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="w-full">
             <thead>
               <tr className="text-left">
                 <th className="py-1">Project</th>
-                <th className="py-1 text-right">Funding</th>
+                <th className="py-1 text-right">Total Venture Funding</th>
                 <th className="py-1 text-right">Deals</th>
               </tr>
             </thead>
