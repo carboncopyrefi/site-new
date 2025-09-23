@@ -2,7 +2,7 @@
 title: Exploring the Social Impact Side of ReFi with YOMA
 description: Trinity Morphy takes a closer look at the Youth Agency Marketplace for Africans and its potential for social impact.
 category: Analysis
-mainImage: "/images/yoma-article-title.jpg"
+mainImage: "/content/assets/yoma-article-title.jpg"
 date: "August 14th, 2025"
 sortDate: 2025-08-14
 author: "Trinity Morphy"
@@ -25,13 +25,13 @@ As at [September 2023](https://www.un.org/en/global-issues/youth#:~:text=Who%20A
 
 Work seekers in this context are the youths seeking earning opportunities. Upon registration, they gain access to explore and complete available tasks on the platform. Once tasks are completed, work seekers can easily submit claims for their work upon which they’ll receive payments upon claims validation. 
 
-![Work seeker flow](/images/yoma-article-1.jpg)
+![Work seeker flow](/content/assets/yoma-article-1.jpg)
 
 ### Implementation partners
 
 Implementation partners create opportunities on the platform for the work seekers. They also review registrations of work seekers for specific opportunities and evaluate the claims submitted for completed tasks. Subsequently, implementation partners are responsible for authorising payments for completed tasks and then conducting a final review of the payments processed. For the opportunity in the image below, we can see that UNICEF Kenya is the implementation Partner.
 
-<img src="/images/yoma-article-2.jpg" class="w-50" alt="YOMA implementation partners" />
+<img src="/content/assets/yoma-article-2.jpg" class="w-50" alt="YOMA implementation partners" />
 
 ### Impact funders
 
@@ -45,7 +45,7 @@ It starts with easy-to-access education through mobile phones. Once they finish 
 
 This creates a clear path from unemployment to a sustainable career.
 
-![YOMA impact model](/images/yoma-article-3.jpg)
+![YOMA impact model](/content/assets/yoma-article-3.jpg)
 
 As of July 2024, IXO convened with a core group of YOMA stakeholders to integrate Web3 infrastructure aimed at advancing impact tokenisation, programmable identity domains, decentralised payment flows, oracle-based verification, and DAO-enabled governance. This collaboration focuses on enabling youth to meaningfully participate in decision-making processes while improving the transparency and coordination of impact initiatives. At present, the second design sprint is underway, with additional partners onboarded and additional technical functionalities actively developed and tested.
 
@@ -87,10 +87,4 @@ YOMA could set up community learning centres with basic computers and internet a
 
 To make a bigger impact on the African youth, YOMA needs to build on what’s working and improve where it’s falling short. A key step is to add clear career paths and guidance tools, helping young people stay focused and see real results from their learning. YOMA should also create different levels of earning opportunities so that both beginners and more experienced users can stay involved and grow. To reach more young people, especially those without regular internet access, YOMA should set up community learning centers and offer ways to earn using simple, low-tech tools. By doing all this, YOMA can become a stronger platform that helps more young Africans gain useful skills, find good work, and succeed in today’s world
 
-
-
-::AuthorArticles{:authorSlug="authorSlug" :author="author" :title="title"}
-::
-
-::Editorial
-::
+{{Editorial}}

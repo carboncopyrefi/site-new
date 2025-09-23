@@ -2,7 +2,7 @@
 title: "Louise Borreani and Pat Rawson of Ecofrontiers - Part 2"
 description: "The authors of The Green Crypto Handbook discuss the transition to onchain environmental finance, regulatory and narrative shifts, and the EU's recent nature credit announcement."
 category: Interview
-mainImage: "/images/louise-pat.jpg"
+mainImage: "/content/assets/louise-pat.jpg"
 date: "July 31st, 2025"
 sortDate: 2025-07-31
 author: "Trinity Morphy"
@@ -11,7 +11,7 @@ authorSlug: "trinity-morphy"
 
 Trinity Morphy continues his discussion with [Louise Borreani](/authors/louise-borreani/) and [Pat Rawson](/authors/pat-rawson/) of [Ecofrontiers](/project/ecofrontiers/), authors of *The Green Crypto Handbook*.
 
-**Part 1 of this interview can be [found here](/features/interview-louise-borreani-pat-rawson-ecofrontiers-green-crypto-handbook-part-one/).**
+**Part 1 of this interview can be [found here](./interview-louise-borreani-pat-rawson-ecofrontiers-green-crypto-handbook-part-one/).**
 
 <hr class="lede center-square">
 

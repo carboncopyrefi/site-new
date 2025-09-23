@@ -3,6 +3,9 @@ import { useParams, Link, useLocation } from "react-router-dom";
 import fm from "front-matter";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import LinkPreview from "~/components/link-preview";
+import remarkGfm from "remark-gfm";
+import type { Parent } from "mdast";
 
 const featureFiles = import.meta.glob("../../content/features/*.md", {
   eager: true,
@@ -20,6 +23,10 @@ const files = {
   features: featureFiles,
   learn: learnFiles,
 };
+
+function isExternalUrl(u?: unknown) {
+  return typeof u === "string" && /^https?:\/\//i.test(u.trim());
+}
 
 export default function FeatureArticle() {
   const { slug } = useParams();
@@ -62,8 +69,16 @@ export default function FeatureArticle() {
       <meta property="twitter:site" content="@cc_refi_news" />
       <link rel="canonical" href={`https://carboncopy.news${location.pathname}`} />
 
-
-      <div className="container mx-auto px-4 py-8 prose">
+      <div className="container mx-auto px-4 py-8 prose prose-img:my-0">
+        {/* Back */}
+        <div className="mb-3">
+            <button
+            onClick={() => window.history.back()}
+            className="text-sm text-neutral-600 hover:text-neutral-800 cursor-pointer"
+            >
+            ← Back
+            </button>
+        </div>
         <span className="text-lg font-semibold text-blue-600 tracking-wide">
           {data.category.toUpperCase()}
         </span>
@@ -105,10 +120,39 @@ export default function FeatureArticle() {
 
         {/* markdown with custom link handling */}
         <Markdown
+          remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw]}
           components={{
-            a: ({ node, ...props }) => (
-              <a {...props} target="_blank" rel="noopener noreferrer" />
+            p: ({ node, children }: any) => {
+              if (
+                node?.type === "element" &&
+                node.tagName === "p" &&
+                node.children?.length === 1
+              ) {
+                const onlyChild = node.children[0];
+                if (onlyChild.type === "element" && onlyChild.tagName === "a") {
+                  const href = onlyChild.properties?.href;
+                  const text =
+                    onlyChild.children?.[0]?.type === "text"
+                      ? onlyChild.children[0].value?.trim()
+                      : "";
+
+                  if (href && text === href) {
+                    // Bare link → replace with preview
+                    return <LinkPreview url={href} />;
+                  }
+                }
+              }
+
+              // fallback: normal <p>
+              return <p>{children}</p>;
+            },
+
+            // normal inline links remain <a ...>
+            a: ({ href, children, ...props }: any) => (
+              <a {...props} href={href} target="_blank" rel="noopener noreferrer">
+                {children}
+              </a>
             ),
           }}
         >

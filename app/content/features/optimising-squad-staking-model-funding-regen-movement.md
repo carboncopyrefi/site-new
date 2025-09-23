@@ -2,14 +2,14 @@
 title: Optimising the Squad Staking Model to Fund the Regen Movement
 description: Trinity Morphy proposes a modification to the current squad staking model that would unlock funding at scale for the regen movement.
 category: Idea
-mainImage: "/images/squadstaking-article-title.jpg"
+mainImage: "/content/assets/squadstaking-article-title.jpg"
 date: "August 8th, 2025"
 sortDate: 2025-08-08
 author: "Trinity Morphy"
 authorSlug: "trinity-morphy"
 ---
 
-The recent [*Regenerative Stack*](https://paragraph.com/@greenpilldevguild/pioneering-a-regenerative-stack){target="_blank"} series by the [Greenpill Dev Guild (GPDG)](https://gap.karmahq.xyz/project/greenpill-dev-guild){target="_blank"} provides us with insights on ways, means, and technologies to help fund public goods. Of all the technologies discussed, [squad staking](https://paragraph.com/@greenpilldevguild/squad-staking-turning-validator-rewards-into-public-good){target="_blank"} stands out to me as the most promising because it offers a practical way to reallocate capital earned from staking toward funding impact initiatives. It also helps decentralise Ethereum by making validation accessible to all, which is arguably one of Ethereum's greatest public goods. 
+The recent [*Regenerative Stack*](https://paragraph.com/@greenpilldevguild/pioneering-a-regenerative-stack) series by the [Greenpill Dev Guild (GPDG)](https://gap.karmahq.xyz/project/greenpill-dev-guild) provides us with insights on ways, means, and technologies to help fund public goods. Of all the technologies discussed, [squad staking](https://paragraph.com/@greenpilldevguild/squad-staking-turning-validator-rewards-into-public-good) stands out to me as the most promising because it offers a practical way to reallocate capital earned from staking toward funding impact initiatives. It also helps decentralise Ethereum by making validation accessible to all, which is arguably one of Ethereum's greatest public goods. 
 
 Simply put, Squad staking enables a group of people to collectively and trustlessly run a yield-generating Ethereum validator cluster. This involves two steps: coordinating the nodes of the group members to operate as a validator cluster and providing the necessary staking collateral. However, due to a lack of stable electricity, internet or time, some prospective participants may not be able to set up their own node. 
 
@@ -19,9 +19,9 @@ What if we could modify the current squad staking model so that anyone could par
 
 ## Squad staking in a nutshell
 
-A squad is a group of people that coordinate together to set up and run a single validator cluster with the aim of confirming transactions and ensuring consensus on the blockchain to earn rewards. Squads use [decentralised validator technologies (DVTs)](https://www.cyfrin.io/blog/full-introduction-to-ethereum-distributed-validator-technology-dvt){target="_blank"} to split the responsibilities amongst themselves. Depending on a few different factors, a node could generate more yield by participating in up to five squads.
+A squad is a group of people that coordinate together to set up and run a single validator cluster with the aim of confirming transactions and ensuring consensus on the blockchain to earn rewards. Squads use [decentralised validator technologies (DVTs)](https://www.cyfrin.io/blog/full-introduction-to-ethereum-distributed-validator-technology-dvt) to split the responsibilities amongst themselves. Depending on a few different factors, a node could generate more yield by participating in up to five squads.
 
-While the solution is technically feasible, the 32 ETH [collateral requirement](https://www.investopedia.com/how-to-stake-ethereum-7482623){target="_blank"} and node costs remain a formidable barrier. GPDG is currently working on two partnerships to that end: a hardware partnership to allow node operators in potential squads get nodes at a subsidised price, and a funding partnership where squads would literally have to stake nothing to become validators on the Ethereum network through the [Lido CSM](https://csm.lido.fi/){target="_blank"}. With a bond deposit between 1.8 - 2.5 ETH ($6300 - $8750), Lido provides the entire collateral for the validator. Squads then earn two forms of [rewards](https://www.youtube.com/watch?v=f0L5j-yy7VM){target="_blank"}: base rewards and bond rewards. Bond rewards are rewards from the bond deposit used to activate the validator with Lido. Base rewards are rewards squads will get for running their validator above at a certain performance threshold. The initial model proposes that beneficiary squads will dedicate [16% of their yield](https://paragraph.com/@greenpilldevguild/squad-staking-turning-validator-rewards-into-public-good){target="_blank"} to funding public goods initiatives. In GPDG's own words:
+While the solution is technically feasible, the 32 ETH [collateral requirement](https://www.investopedia.com/how-to-stake-ethereum-7482623) and node costs remain a formidable barrier. GPDG is currently working on two partnerships to that end: a hardware partnership to allow node operators in potential squads get nodes at a subsidised price, and a funding partnership where squads would literally have to stake nothing to become validators on the Ethereum network through the [Lido CSM](https://csm.lido.fi/). With a bond deposit between 1.8 - 2.5 ETH ($6300 - $8750), Lido provides the entire collateral for the validator. Squads then earn two forms of [rewards](https://www.youtube.com/watch?v=f0L5j-yy7VM): base rewards and bond rewards. Bond rewards are rewards from the bond deposit used to activate the validator with Lido. Base rewards are rewards squads will get for running their validator above at a certain performance threshold. The initial model proposes that beneficiary squads will dedicate [16% of their yield](https://paragraph.com/@greenpilldevguild/squad-staking-turning-validator-rewards-into-public-good) to funding public goods initiatives. In GPDG's own words:
 
 <figure class="text-center my-5">
   <blockquote class="blockquote">
@@ -33,7 +33,7 @@ While the solution is technically feasible, the 32 ETH [collateral requirement](
 
 The regen movement has remained heavily dependent on grant funding and needs sustainable funding models to ensure impact continuity. This is where squad staking shines as a scalable and sustainable funding source for impact. The key challenge is unlocking enough capital to get the flywheel turning. More capital means more squads, more squads generate more revenue, and more revenue means more impact. Accepting financial participants is how we get there. By allowing ETH holders to contribute without needing to run nodes, squads can collectively provide the staking bonds/collateral themselves.
 
-Regen communities would be natural candidates, both as financial contributors and as recipients of the yield set aside for impact funding. Over time, the broader squad staking community could decide where to direct that funding to based on demonstrated impact. In short, a [PGF Investment Instrument (PII)](https://carboncopy.news/features/hypothesising-retail-investment-instrument-with-public-goods-funding-integration/){target="_blank"}.
+Regen communities would be natural candidates, both as financial contributors and as recipients of the yield set aside for impact funding. Over time, the broader squad staking community could decide where to direct that funding to based on demonstrated impact. In short, a [PGF Investment Instrument (PII)](https://carboncopy.news/features/hypothesising-retail-investment-instrument-with-public-goods-funding-integration/).
 
 It would work like this:
 
@@ -43,7 +43,7 @@ It would work like this:
 
 - **Conditional payout**: 20% of the reward is allocated to a regen squad treasury, 30% to technical participants, and 50% to financial participants. Financial participants can only withdraw their ETH one year from the date the validator commences operations.
 
-With 32 ETH staked in a squad, at the [current average](https://explorer.rated.network/network?network=mainnet&timeWindow=1d&rewardsMetric=average&geoDistType=all&hostDistType=all&soloProDist=stake){target="_blank"} APR of 2.91%, the squad will earn 0.93 ETH annually:
+With 32 ETH staked in a squad, at the [current average](https://explorer.rated.network/network?network=mainnet&timeWindow=1d&rewardsMetric=average&geoDistType=all&hostDistType=all&soloProDist=stake) APR of 2.91%, the squad will earn 0.93 ETH annually:
 
 - Financial participants take ~0.46 ETH
 - Technical participants take ~0.27 ETH
@@ -73,7 +73,7 @@ The first way to generate more revenue is to increase the number of squads. Ther
 
 - **Regen Coordination relationships**: The Regen Coordination Network has established relationships with several ecosystem projects, which can be used to secure organisational support, a stepping stone to mobilising individual contributors.
 
-Let’s assume 50 people are able to acquire nodes with the support of [Greenpill Network](/project/green-pill/){target="_blank"}, and each squad consists of a maximum of six nodes. We can form a maximum of 41 squads. Assuming they all meet the performance threshold, the total annual yield would be approximately 38.13 ETH. Over a 10-year period, this would amount to 381.3 ETH ($1,334,550) in cumulative revenue, of which 45.75 ETH (~$160,000) will go to funding new squads.
+Let’s assume 50 people are able to acquire nodes with the support of [Greenpill Network](/project/green-pill/), and each squad consists of a maximum of six nodes. We can form a maximum of 41 squads. Assuming they all meet the performance threshold, the total annual yield would be approximately 38.13 ETH. Over a 10-year period, this would amount to 381.3 ETH ($1,334,550) in cumulative revenue, of which 45.75 ETH (~$160,000) will go to funding new squads.
 
 ### Compounding
 
@@ -83,7 +83,7 @@ Most squads are not immediately profitable, especially in the early stages becau
 - Subsidise downtime risks or slashing penalties
 = Create a treasury for reinvesting into new squads
 
-As mentioned, squads using Lido CSM support are [expected to allocate](https://paragraph.com/@greenpilldevguild/squad-staking-turning-validator-rewards-into-public-good){target="_blank"} at least 16% of their yield over an agreed period to funding public good projects. Over the first ten years, this yield  could be strategically allocated as follows:
+As mentioned, squads using Lido CSM support are [expected to allocate](https://paragraph.com/@greenpilldevguild/squad-staking-turning-validator-rewards-into-public-good) at least 16% of their yield over an agreed period to funding public good projects. Over the first ten years, this yield  could be strategically allocated as follows:
 
 - 60% reinvested into funding new squads (which are themselves regen initiatives)
 - 20% directed into existing regen investment instruments
@@ -113,10 +113,4 @@ This is exactly the shift we need to embrace. If regen communities continue to d
 
 Squad staking can offer a sustainable pathway to funding impact initiatives. While the road to scale may take time, each squad launched, each validator activated, and each ETH earned brings us closer to a self-sustaining ecosystem. Such a transition will not happen overnight. Regeneration is, by nature, a patient process that rewards consistency and coordination. If we can stay committed to the vision and expand participation, then squad staking has the potential to increase funding for what matters.
 
-
-
-::AuthorArticles{:authorSlug="authorSlug" :author="author" :title="title"}
-::
-
-::Editorial
-::
+{{Editorial}}

@@ -2,7 +2,7 @@
 title: "Louise Borreani and Pat Rawson of Ecofrontiers - Part 1"
 description: Trinity Morphy catches up with the authors of The Green Crypto Handbook to discuss ecocapitalism, the onchain environmental finance stack, and the maturity of blockchain.
 category: Interview
-mainImage: "/images/louise-pat.jpg"
+mainImage: "/content/assets/louise-pat.jpg"
 date: "July 29th, 2025"
 sortDate: 2025-07-29
 author: "Trinity Morphy"
@@ -15,7 +15,7 @@ Trinity Morphy sat down with Louise Borreani and Pat Rawson of [Ecofrontiers](/p
 
 [Louise Borreani](/authors/louise-borreani/) is a green finance specialist, technical writer and researcher who has published pioneer articles and extensive research on the tokenomics of ecosystem protection and restoration. Her research has spanned topics ranging from nature-based asset markets to (d)MRV. She holds a Masterʼs in Environmental Policy from Sciences Po Paris, and wrote her thesis on Blockchain for Environmental Governance.
 
-**Note:** An [X Space](https://x.com/CoralTribeNFT/status/1945167232860086406){target="_blank"} hosted by Coral Tribe was also held to discuss the work.
+**Note:** An [X Space](https://x.com/CoralTribeNFT/status/1945167232860086406) hosted by Coral Tribe was also held to discuss the work.
 
 <hr class="lede center-square">
 
@@ -84,10 +84,8 @@ In *The Green Crypto Handbook*, we describe this transformation across the Envir
 
 In short, the tools are here—or nearly here. The real work now is alignment: between code and culture, protocol and place, asset and ecology.
 
-<br>
-
-**Continue to [Part 2](/features/interview-louise-borreani-pat-rawson-ecofrontiers-green-crypto-handbook-part-two/) of the interview.**
+**Continue to [Part 2](./interview-louise-borreani-pat-rawson-ecofrontiers-green-crypto-handbook-part-two/) of the interview.**
 
 ---
 
-*The answers in this article are the personal opinions of Louise Borreani and Pat Rawson and do not necessarily reflect the views of Trinity Morphy and CARBON Copy.*
+*The answers in this article are the personal opinions of Louise Borreani and Pat Rawson and do not necessarily reflect the views of Ecofrontiers.*

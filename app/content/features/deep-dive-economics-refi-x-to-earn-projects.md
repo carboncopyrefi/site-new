@@ -2,7 +2,7 @@
 title: A Deep Dive into the Economics of ReFi X-to-Earn Projects 
 description: Trinity Morphy explores the X-to-Earn concept, its potential for financial and impact sustainability, and possible revenue models.
 category: Analysis
-mainImage: "/images/x2e-article-title.jpg"
+mainImage: "/content/assets/x2e-article-title.jpg"
 date: "April 15th, 2025"
 sortDate: 2025-04-15
 author: "Trinity Morphy"
@@ -11,7 +11,7 @@ authorSlug: "trinity-morphy"
 
 The X-to-Earn (X2E) model, where "X" represents a type of activity, gained significant traction as crypto became popular. Initially popularised by "play-to-earn" (P2E) blockchain games, this concept demonstrated the ability of direct incentives to stimulate user adoption. Recognising this potential, ReFi builders adapted the X2E framework to reward individuals and communities for things like tree-planting, cleaning, moving, and participation in sustainable practices. After many attempts, the big problem is that these projects lack financial and impact sustainability. 
 
-Approximately 30 X2E projects exist in ReFi, including [DeCleanup Network](/project/decleanup/){target="_blank"}, Recy Network, and [WAYST](/project/wayst/){target="_blank"}, to reward users for completing ecological and social impact activities. However, a critical challenge persists: there isn't a consistent revenue model to sustain the incentives. In other words, projects deplete their funds without a reliable mechanism for replenishment. While the allure of direct compensation in ReFi X2E projects drives initial user adoption, sustaining operations remains a significant hurdle. In this article, I aim to provide a deep analysis of the economic and impact challenges confronting these ReFi X2E projects and propose viable pathways forward.
+Approximately 30 X2E projects exist in ReFi, including [DeCleanup Network](/project/decleanup/), Recy Network, and [WAYST](/project/wayst/), to reward users for completing ecological and social impact activities. However, a critical challenge persists: there isn't a consistent revenue model to sustain the incentives. In other words, projects deplete their funds without a reliable mechanism for replenishment. While the allure of direct compensation in ReFi X2E projects drives initial user adoption, sustaining operations remains a significant hurdle. In this article, I aim to provide a deep analysis of the economic and impact challenges confronting these ReFi X2E projects and propose viable pathways forward.
 
 
 ## The economics of X2E projects
@@ -26,15 +26,15 @@ Grants can help fund the early stages of a project, but they often come with str
 
 ### Rewards
 
-![Infographic illustrating declining treasury over time](/images/x2e-article-1.png)
+![Infographic illustrating declining treasury over time](/content/assets/x2e-article-1.png)
 
 Most ReFi X2E projects have a one-way rewards system: from the project to the user. As shown in the first illustration, rewards flow out of the project’s treasury to users upon launch, typically without any mechanism for replenishment. As more users get onboarded, the rewards distributed gradually reduce to sustain the treasury. At this point, some users may have grown dependent on the rewards they generate from the project as supplementary income. Without replenishment, the treasury will get empty no matter the reduction in reward amount. For some, it could be within six months and for others, it could be after a year. Without any self-sustaining revenue streams, ReFi X2E projects are 101% sure to kiss the dust.
 
-![Chart showing decline in rewards as user base grows](/images/x2e-article-2.png)
+![Chart showing decline in rewards as user base grows](/content/assets/x2e-article-2.png)
 
 ### Revenue
 
-The core value proposition of ReFi X2E projects is that users execute impact activities and receive tangible rewards in return. How does this value proposition fit into the [10 most popular revenue models](https://fi.co/insight/the-10-most-popular-startup-revenue-models){target="_blank"}? For easier understanding, I further categorised the discussed models into their underlying revenue streams. 
+The core value proposition of ReFi X2E projects is that users execute impact activities and receive tangible rewards in return. How does this value proposition fit into the [10 most popular revenue models](https://fi.co/insight/the-10-most-popular-startup-revenue-models)? For easier understanding, I further categorised the discussed models into their underlying revenue streams. 
 
 #### User-based models
 
@@ -58,7 +58,7 @@ Institutional revenue models for X2E models are very much reliant on the number 
 
 A hybrid revenue model generates revenue from both users and institutions and a typical example is the donation revenue model. With the donation revenue model, X2E products get donations and grants from users and institutions alike that are quite appreciative of the work done. The problem with this model is that it suffers from unpredictable revenue streams and is susceptible to donor fatigue. With every donation cycle, the project has to create a unique donation value proposition that would spur people to donate.
 
-After analysing these revenue models for ReFi X2E projects, none of them are likely to generate enough revenue to pay each user at least $100 a month–the base amount revealed in a [Mastercard survey](https://newsroom.mastercard.com/news/insights/2023/x-to-earn/#:~:text=Consumers%20want%20to%20be%20paid,drive%20user%20growth%20and%20revenue.){target="_blank"} that people would need to earn to consistently use these platforms.
+After analysing these revenue models for ReFi X2E projects, none of them are likely to generate enough revenue to pay each user at least $100 a month–the base amount revealed in a [Mastercard survey](https://newsroom.mastercard.com/news/insights/2023/x-to-earn/#:~:text=Consumers%20want%20to%20be%20paid,drive%20user%20growth%20and%20revenue.) that people would need to earn to consistently use these platforms.
 
 ## The impact of ReFi X2E projects
 
@@ -126,7 +126,7 @@ Beyond economic viability concerns, many ReFi X2E models incentivize short-term 
 
 ## Case study: Sweatcoin
 
-[Sweatcoin](https://www.businessofapps.com/data/sweatcoin-statistics/){target="_blank"}, established in 2014, is a pioneering "move-to-earn" (X2E) project that incentivises physical activity by rewarding users with sweatcoins for their steps. With a current user base of [190 million](https://sweatco.in/), it stands as the oldest sustainability-focused X2E platform. Its unique position, operating within both Web2 and Web3 ecosystems, provides a valuable case study for understanding the challenges and limitations inherent in X2E projects.
+[Sweatcoin](https://www.businessofapps.com/data/sweatcoin-statistics/), established in 2014, is a pioneering "move-to-earn" (X2E) project that incentivises physical activity by rewarding users with sweatcoins for their steps. With a current user base of [190 million](https://sweatco.in/), it stands as the oldest sustainability-focused X2E platform. Its unique position, operating within both Web2 and Web3 ecosystems, provides a valuable case study for understanding the challenges and limitations inherent in X2E projects.
 
 ### Revenue models
 
@@ -150,9 +150,9 @@ In my mind, ReFi X2E projects lack the economic and impact viability to exist as
 
 ### External funding - VeBetter
 
-A poster example providing external funding for ReFi X2E projects is [VeBetter](/project/vebetterdao/){target="_blank"}. You can think of VeBetter as a build-to-earn project that incentivises the building and development of ReFi X2E products in the VeChain ecosystem. 
+A poster example providing external funding for ReFi X2E projects is [VeBetter](/project/vebetterdao/). You can think of VeBetter as a build-to-earn project that incentivises the building and development of ReFi X2E products in the VeChain ecosystem. 
 
-![VeBetter](/images/x2e-article-3.png)
+![VeBetter](/content/assets/x2e-article-3.png)
 
 VeBetter uses a percentage of its B3TR token supply to fund X2E Dapps weekly and will continue to do so for the next 10-12 years. My major problem here is that like any other X2E model discussed, VeBetter relies on its token supply to fund these regen projects without any means of replenishment. VeBetter presents an innovative approach to funding sustainability, but its long-term sustainability (<20 years) is not guaranteed.
 
@@ -170,8 +170,4 @@ The key pattern in successful pivots is identifying specific friction points in 
 
 ReFi X2E projects are excellent for driving user adoption and attention, but they often struggle with sustainable funding because their value propositions don’t align with traditional revenue models. Additionally, the activities they reward tend to generate only short-term impact. As standalone products, they currently fall short in effectively incentivising and achieving long-term impact. However, they work best in ReFi when used to attract users to economically viable projects, steadfastly driving the regenaissance. 
 
-::AuthorArticles{:authorSlug="authorSlug" :author="author" :title="title"}
-::
-
-::Editorial
-::
+{{Editorial}}

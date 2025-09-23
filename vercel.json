@@ -6,7 +6,17 @@
       "permanent": true
     },
     {
+      "source": "/project/:slug",
+      "destination": "/refi/projects/:slug",
+      "permanent": true
+    },
+    {
       "source": "/projects/",
+      "destination": "/refi/projects",
+      "permanent": true
+    },
+    {
+      "source": "/projects",
       "destination": "/refi/projects",
       "permanent": true
     },
@@ -16,7 +26,27 @@
       "permanent": true
     },
     {
+      "source": "/landscape",
+      "destination": "/refi/projects",
+      "permanent": true
+    },
+    {
+      "source": "/dashboard",
+      "destination": "/impact/overview",
+      "permanent": true
+    },
+     {
+      "source": "/dashboard/",
+      "destination": "/impact/overview",
+      "permanent": true
+    },
+    {
       "source": "/project/tokens/",
+      "destination": "/refi/tokens",
+      "permanent": true
+    },
+    {
+      "source": "/project/tokens",
       "destination": "/refi/tokens",
       "permanent": true
     },
@@ -26,7 +56,17 @@
       "permanent": true
     },
     {
+      "source": "/projects/knowledge",
+      "destination": "/refi/resources/",
+      "permanent": true
+    },
+    {
       "source": "/category/:slug/",
+      "destination": "/refi/categories/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/category/:slug",
       "destination": "/refi/categories/:slug",
       "permanent": true
     },
@@ -36,7 +76,17 @@
       "permanent": true
     },
     {
+      "source": "/features",
+      "destination": "/content/features",
+      "permanent": true
+    },
+    {
       "source": "/features/:slug/",
+      "destination": "/content/features/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/features/:slug",
       "destination": "/content/features/:slug",
       "permanent": true
     },
@@ -46,17 +96,37 @@
       "permanent": true
     },
     {
+      "source": "/learn",
+      "destination": "/content/learn",
+      "permanent": true
+    },
+    {
       "source": "/learn/:slug/",
       "destination": "/content/learn/:slug",
       "permanent": true
     },
     {
-      "source": "/dashboard/",
-      "destination": "/impact/overview",
+      "source": "/learn/:slug",
+      "destination": "/content/learn/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/learn/:slug/",
+      "destination": "/content/learn/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/learn/:slug",
+      "destination": "/content/learn/:slug",
       "permanent": true
     },
     {
       "source": "/this-week-in-refi/",
+      "destination": "/content/newsletter",
+      "permanent": true
+    },
+    {
+      "source": "/this-week-in-refi",
       "destination": "/content/newsletter",
       "permanent": true
     }

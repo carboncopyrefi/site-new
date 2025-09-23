@@ -2,7 +2,7 @@
 title: "Decentralising the Planet’s Powerhouse: The Promises of Blockchain-based Solar Production"
 description: Louise Borreani and Pat Rawson of Ecofrontiers explore Energy DePIN's potential to advance solar markets with a deep dive into Glow, the protocol driving solar energy expansion.
 category: Guest Feature
-mainImage: "/images/glow-article-title.jpg"
+mainImage: "/content/assets/glow-article-title.jpg"
 mainImageCaption: 'Design works by <a href="https://thewegsguy.framer.website" target="_blank" class="text-decoration-none">Wegs</a>.'
 date: "March 24th, 2025"
 sortDate: 2025-03-24
@@ -10,15 +10,15 @@ author: "Louise Borreani, Pat Rawson"
 authorSlug: "louise-borreani pat-rawson"
 ---
 
-The following article is a guest feature by the co-founders of [Ecofrontiers](/project/ecofrontiers/){target="_blank"}, Louise Borreani and Pat Rawson, sponsored by [LFGlow](https://x.com/LFGlowCommunity){target="_blank"}, a decentralised community supporting the Glow Protocol. It evaluates the challenges of today’s solar energy markets and the solutions blockchain-based decentralised physical infrastructure network (DePIN) technologies propose. It uses Glow—one of the highest revenue generating DePIN startups<sup>1</sup>—as a case study to demonstrate how cryptoeconomic mechanism design can incentivise local and sustainable solar energy production. The article assumes the reader's fundamental knowledge of blockchain systems.
+The following article is a guest feature by the co-founders of [Ecofrontiers](/project/ecofrontiers/), Louise Borreani and Pat Rawson, sponsored by [LFGlow](https://x.com/LFGlowCommunity), a decentralised community supporting the Glow Protocol. It evaluates the challenges of today’s solar energy markets and the solutions blockchain-based decentralised physical infrastructure network (DePIN) technologies propose. It uses Glow—one of the highest revenue generating DePIN startups<sup>1</sup>—as a case study to demonstrate how cryptoeconomic mechanism design can incentivise local and sustainable solar energy production. The article assumes the reader's fundamental knowledge of blockchain systems.
 
-<hr class="lede center-square">
+<hr />
 
 ## The Solar Market Puzzle
 
-![Transformation of Human Energy Infrastructure chart](/images/glow-article-2.jpg)
+![Transformation of Human Energy Infrastructure chart](/content/assets/glow-article-2.jpg)
 
-<span class="text-center small text-secondary d-block mt-2">Graphic adapted from Smil, Vaclav. Energy Transitions: Global and National Perspectives. Santa Barbara, CA: Praeger, 2017.</span>
+<span class="flex text-center text-xs">Graphic adapted from Smil, Vaclav. Energy Transitions: Global and National Perspectives. Santa Barbara, CA: Praeger, 2017.</span>
 
 <br>
 
@@ -29,9 +29,9 @@ Electricity generation strongly contributes to rising CO2 emissions,<sup>2</sup>
 
 **Solar energy, by its nature, competes with itself, a market phenomenon known as "cannibalisation."<sup>11</sup>** The more solar energy is produced, the lower its marginal value becomes. That is, the additional economic benefit gained by each extra unit of solar production diminishes as supply increases. This dynamic arises in part from solar energy’s *learning rate*, where increased production leads to lower costs due to cumulative experience and efficiency improvements.<sup>12</sup> Paradoxically, this constrains the speed of the renewable transition, as energy investments have traditionally been driven by profit motives rather than cost savings.<sup>13</sup> This "solar paradox"—where decreasing production costs reduce long-term profits—restrains distributors and wholesalers who must balance profitability with expanding capacity. This effect is compounded by grid capacity limitations—the maximum amount of electricity the grid can safely transmit and distribute. For example, in the USA, the grid connection queue has grown sevenfold over the past decade, with solar, wind, and battery projects accounting for 95% of the backlog.<sup>14</sup>
 
-![Standardised Electricity Generation Cost chart](/images/glow-article-3.jpg)
+![Standardised Electricity Generation Cost chart](/content/assets/glow-article-3.jpg)
 
-<span class="text-center small text-secondary d-block mt-2">This comparison of levelised cost of electricity (LCOE) for unabated coal and solar photovoltaic (PV) in the APS scenario, 2010–2050, showcases the declining costs of solar PV completely outperforming coal over time (measured in USD 2021 per MWh). Graphic adapted from International Energy Agency (IEA). World Energy Outlook 2021. Paris: IEA, 2021.</span>
+<span class="flex text-center text-xs">This comparison of levelised cost of electricity (LCOE) for unabated coal and solar photovoltaic (PV) in the APS scenario, 2010–2050, showcases the declining costs of solar PV completely outperforming coal over time (measured in USD 2021 per MWh). Graphic adapted from International Energy Agency (IEA). World Energy Outlook 2021. Paris: IEA, 2021.</span>
 
 <br>
 
@@ -44,15 +44,15 @@ Electricity generation strongly contributes to rising CO2 emissions,<sup>2</sup>
 ## Energy DePIN’s Game B
 
 <figure class="text-center my-5">
-  <blockquote class="blockquote">
+  <blockquote className="border-l-4 border-gray-300 pl-4 italic text-gray-700">
     <span>When any new technology comes along and proves economically viable, the commercial world into which it is incorporated always changes to one extent or another as a result. This was as true… for the personal computer as for cryptocurrency. … New technologies disrupt established ways of doing things economically as well as technically.</span>
   </blockquote>
-  <figcaption class="blockquote-footer">
+  <figcaption className="mt-3 text-sm text-gray-500">
     <cite title="Brett Christophers">Brett Christophers, <em>The Price Is Wrong</em></cite>
   </figcaption>
 </figure>
 
-While traditional energy markets often fail to align with free-market principles, emerging innovations such as Decentralised Physical Infrastructure Networks (DePIN) seek to place market dynamics at the core of energy production. By leveraging blockchain-based cryptoeconomic mechanism design, DePIN aims to mitigate the industry inefficiencies inherent to centralised energy systems. In a typical DePIN design, participants contribute physical resources in exchange for rewards—a Web3 adaptation of the sharing economy.<sup>21</sup>  In this sense, Energy DePINs are to be differentiated from peer-to-peer electricity markets such as [Powerledger](/project/powerledger/){target="_blank"}, [Electron](https://electron.net/){target="_blank"}, or [Pylon Network](https://pylon.network/){target="_blank"} as they are designed to decentralise and incentivise renewable energy production at scale, ensuring infrastructure is built from the ground up rather than just tokenising energy transactions. DePIN proponents such as David Vorick (CEO & Founder, Glow International) claim that it is apt “at mobilising massive amounts of raw infrastructure. It does it quickly, it does it efficiently, and it does it cost effectively.”<sup>22</sup> This claim is well-supported, surpassing conventional expectation: 
+While traditional energy markets often fail to align with free-market principles, emerging innovations such as Decentralised Physical Infrastructure Networks (DePIN) seek to place market dynamics at the core of energy production. By leveraging blockchain-based cryptoeconomic mechanism design, DePIN aims to mitigate the industry inefficiencies inherent to centralised energy systems. In a typical DePIN design, participants contribute physical resources in exchange for rewards—a Web3 adaptation of the sharing economy.<sup>21</sup>  In this sense, Energy DePINs are to be differentiated from peer-to-peer electricity markets such as [Powerledger](/project/powerledger/), [Electron](https://electron.net/), or [Pylon Network](https://pylon.network/) as they are designed to decentralise and incentivise renewable energy production at scale, ensuring infrastructure is built from the ground up rather than just tokenising energy transactions. DePIN proponents such as David Vorick (CEO & Founder, Glow International) claim that it is apt “at mobilising massive amounts of raw infrastructure. It does it quickly, it does it efficiently, and it does it cost effectively.”<sup>22</sup> This claim is well-supported, surpassing conventional expectation: 
 
 - Bitcoin’s compute network has scaled to over 10 million ASIC machines.
 
@@ -70,9 +70,9 @@ These projects have collectively emitted billions USD in tokens to competitively
 
 ## Case Study: Glow
 
-![Glow Value Chain infographic](/images/glow-article-4.jpg)
+![Glow Value Chain infographic](/content/assets/glow-article-4.jpg)
 
-<span class="text-center small text-secondary d-block mt-2">Simplified flow of the Glow system, where solar farms get rewards proportional to their protocol fee and carbon credit production. Farms are certified weekly by Glow Verification Entities (GVEs).</span>
+<span class="flex text-center text-xs">Simplified flow of the Glow system, where solar farms get rewards proportional to their protocol fee and carbon credit production. Farms are certified weekly by Glow Verification Entities (GVEs).</span>
 
 <br>
 
@@ -82,9 +82,9 @@ Having outlined the big picture  of solar industry structure and Energy DePIN, i
 
 At the core of Glow’s economic model is the commitment of solar farms to give 100% of their electricity revenue (paid in USDC: a tokenised US-dollar equivalent) to the protocol as a fee. This is a fundamental joining requirement that ensures that solar farms have long-term skin in the game. With this collectivisation mechanism, Glow’s primary constraint becomes the number of solar farms it can attract.<sup>28</sup> It serves to align the individual financial incentives of solar farms with the protocol’s collective goals of increasing solar capacity and generating carbon avoidance credits. That is, Glow’s carbon credits represent emissions reductions achieved by avoiding fossil fuel-based energy production through renewable substitution.<sup>29</sup>
 
-![Recursive Subsidy Model infographic](/images/glow-article-5.jpg)
+![Recursive Subsidy Model infographic](/content/assets/glow-article-5.jpg)
 
-<span class="text-center small text-secondary d-block mt-2">Glow’s protocol proposes a recursive subsidy model, where the revenue generated by solar farms is reinvested into the construction of new solar projects, creating a compounding effect on solar infrastructure development. Glow claims that this creates a multiplier effect, where every dollar spent on initial construction could result in an estimated $20 in additional solar infrastructure over time.<sup>30</sup></span>
+<span class="flex text-center text-xs">Glow’s protocol proposes a recursive subsidy model, where the revenue generated by solar farms is reinvested into the construction of new solar projects, creating a compounding effect on solar infrastructure development. Glow claims that this creates a multiplier effect, where every dollar spent on initial construction could result in an estimated $20 in additional solar infrastructure over time.<sup>30</sup></span>
 
 <br>
 
@@ -98,9 +98,9 @@ A *Veto Council* consisting of elected protocol delegates<sup>32</sup> oversees 
 
 #### 3. Glow Production Credits
 
-![Glow Production Credits infographic](/images/glow-article-6.jpg)
+![Glow Production Credits infographic](/content/assets/glow-article-6.jpg)
 
-<span class="text-center small text-secondary d-block mt-2">Unlike traditional carbon credits, which are typically one-off purchases to offset emissions, Production Credits represent ongoing rights to non-transferable carbon avoidance credits produced by specific solar farms.</span>
+<span class="flex text-center text-xs">Unlike traditional carbon credits, which are typically one-off purchases to offset emissions, Production Credits represent ongoing rights to non-transferable carbon avoidance credits produced by specific solar farms.</span>
 
 <br>
 
@@ -118,9 +118,9 @@ To keep the market for Production Credits and GLW liquid and stable, Glow operat
 
 #### 6. The Global Production Zone
 
-![The Global Production Zone infographic](/images/glow-article-7.jpg)
+![The Global Production Zone infographic](/content/assets/glow-article-7.jpg)
 
-<span class="text-center small text-secondary d-block mt-2">In this example, an emissary delegates three Production Credits to the Global Production Zone, which entails four active solar farms. They are rewarded three points per week for doing so. The variance minimisation algorithm uses the number of points gathered by the emissary to assign them two solar farms of equivalent weight—in other words, the algorithm ensures a fair and balanced allocation of farms to the emissary by distributing their Production Credits across projects of similar impact, preventing disproportionate exposure to underperforming farms. The emissary can then finally claim carbon additionality associated with those two farms, from which they will receive photos, audits, and live data.</span>
+<span class="flex text-center text-xs">In this example, an emissary delegates three Production Credits to the Global Production Zone, which entails four active solar farms. They are rewarded three points per week for doing so. The variance minimisation algorithm uses the number of points gathered by the emissary to assign them two solar farms of equivalent weight—in other words, the algorithm ensures a fair and balanced allocation of farms to the emissary by distributing their Production Credits across projects of similar impact, preventing disproportionate exposure to underperforming farms. The emissary can then finally claim carbon additionality associated with those two farms, from which they will receive photos, audits, and live data.</span>
 
 <br>
 
@@ -136,13 +136,13 @@ Data from Glow’s rewards dashboard<sup>38</sup> shows that solar farms consist
 
 This same prismatic strategy is used for carbon credits. Unlike traditional carbon credits, which are fixed at issuance, *prismatic carbon credits* dynamically adjust their value based on real-time carbon performance. Each week, these credits are issued in proportion to a solar farm’s verified carbon reduction, with stronger-performing farms receiving a greater share. Importantly, prismatic carbon credits are essential for unlocking prismatic GLW rewards. The amount of prismatic carbon credits required corresponds to the protocol fees paid, ensuring that solar farms must demonstrate carbon impact to fully access their earnings. If a farm lacks sufficient prismatic carbon credits, it must acquire them from others in the market, while farms with surplus credits can sell them. Because the total supply of prismatic carbon credits each week is precisely calibrated to match the protocol fees paid, no excess is created. This system aligns financial incentives with sustained carbon efficiency while maintaining a balanced and liquid market for prismatic carbon credits.
 
-![Glow's System infographic](/images/glow-article-8.jpg)
+![Glow's System infographic](/content/assets/glow-article-8.jpg)
 
-<span class="text-center small text-secondary d-block mt-2">Full diagram of the Glow protocol, where solar farms receive rewards in GLW and USDC proportional to their initial contribution of the present value of 10 years of their electricity revenue upfront and carbon credit production. For purposes of simplification, this diagram doesn’t include mention of auditing and governance mechanisms.</span>
+<span class="flex text-center text-xs">Full diagram of the Glow protocol, where solar farms receive rewards in GLW and USDC proportional to their initial contribution of the present value of 10 years of their electricity revenue upfront and carbon credit production. For purposes of simplification, this diagram doesn’t include mention of auditing and governance mechanisms.</span>
 
 ## Piecing It All Together: From Puzzles to Legos
 
-![Glow's System infographic](/images/glow-article-9.jpg)
+![Glow's System infographic](/content/assets/glow-article-9.jpg)
 
 <br>
 
@@ -162,26 +162,21 @@ As mentioned prior, much of the increased coordination costs in the energy indus
 
 As traditional energy markets face the consequences of their puzzle structure, Energy DePIN is already proving its strong potential to redefine how energy markets are structured while simultaneously advancing broader macroeconomic goals of environmental accountability and carbon neutrality. Imagine a society where financial transactions inherently support verifiable clean energy and carbon neutrality, finally giving all economic participants a straightforward mechanism for “cleaning” their consumption and spending patterns. It’s hard to see how a never-ending jigsaw puzzle where market actors must constantly adjust to the rules of the game or even go as far as to change the rules in their favor can compete with the automated Lego-like systems that blockchain-based innovation favors. Whether or not it can succeed in the face of an existing industry—an industry with every incentive to push against consumer cost reduction in favor of organisational profit-seeking—is yet to be seen. 
 
-<hr class="lede center-square">
+<hr />
 
 ### About Glow ☀️
 
 Glow, an Ethereum-based solar infrastructure protocol, revolutionizes the decentralized electric grid by rewarding solar farms with GLW tokens for their electricity production and USDC for their carbon credits. More than a protocol, Glow is a green energy movement to replace the entire dirty grid with 100% renewable clean energy. Individuals and Commercial Solar Farm prospective customers should contact: hello@glowlabs.org.
 
-[Website](https://glow.org/){target="_blank"} | [X](https://x.com/GlowFND){target="_blank"} | [Discord](https://discord.com/invite/vbdJKx2HXc){target="_blank"}
+[Website](https://glow.org/) | [X](https://x.com/GlowFND) | [Discord](https://discord.com/invite/vbdJKx2HXc)
 
 ### About Ecofrontiers 🌳
 
 Ecofrontiers is a research agency producing theoretical and technical knowledge for a green institutional transition. The team offers new and established Web3 projects research, consulting, and advisory services.
 
-[Website](https://ecofrontiers.xyz/){target="_blank"} | [X](https://x.com/ecofrontiers){target="_blank"} | [The Green Crypto Handbook](https://curvelabs.notion.site/Ecofrontiers-8277c23c652a41729400973a360cf262?pvs=4){target="_blank"}
+[Website](https://ecofrontiers.xyz/) | [X](https://x.com/ecofrontiers) | [The Green Crypto Handbook](https://curvelabs.notion.site/Ecofrontiers-8277c23c652a41729400973a360cf262?pvs=4)
 
-<hr class="lede center-square">
-
-::NewsletterSignup
-::
-
-<hr class="lede center-square">
+<hr />
 
 ### References
 
@@ -231,20 +226,20 @@ Ecofrontiers is a research agency producing theoretical and technical knowledge 
 
 ### Bibliography
 
-- James, Ben (2024). [Solar will get too cheap to connect to the power grid](https://climate.benjames.io/solar-off-grid/){target="_blank"}
+- James, Ben (2024). [Solar will get too cheap to connect to the power grid](https://climate.benjames.io/solar-off-grid/)
 
-- Sengupta, Shayon & Jain, Tushar (2024). [The Great Energy Coordination Problem](https://multicoin.capital/2024/09/12/the-great-energy-coordination-problem/){target="_blank"}
+- Sengupta, Shayon & Jain, Tushar (2024). [The Great Energy Coordination Problem](https://multicoin.capital/2024/09/12/the-great-energy-coordination-problem/)
 
-- Christophers, Brett  (2024). [The Price Is Wrong](https://www.versobooks.com/products/3069-the-price-is-wrong?srsltid=AfmBOoraa7soaO0ionZEBjni3D2YghFfLHL32lIbXvrg-ShQqhzX18Qe){target="_blank"}
+- Christophers, Brett  (2024). [The Price Is Wrong](https://www.versobooks.com/products/3069-the-price-is-wrong?srsltid=AfmBOoraa7soaO0ionZEBjni3D2YghFfLHL32lIbXvrg-ShQqhzX18Qe)
 
-- Lazard LCOE (2024). [Levelized Cost of Energy](https://www.versobooks.com/products/3069-the-price-is-wrong?srsltid=AfmBOoraa7soaO0ionZEBjni3D2YghFfLHL32lIbXvrg-ShQqhzX18Qe){target="_blank"}
+- Lazard LCOE (2024). [Levelized Cost of Energy](https://www.versobooks.com/products/3069-the-price-is-wrong?srsltid=AfmBOoraa7soaO0ionZEBjni3D2YghFfLHL32lIbXvrg-ShQqhzX18Qe)
 
-- Jones, Dave (2024). [Tweet](https://x.com/CleanPowerDave/status/1836719907616031040){target="_blank"}
+- Jones, Dave (2024). [Tweet](https://x.com/CleanPowerDave/status/1836719907616031040)
 
-- Rosenow, Jan (2024). [Tweet](https://x.com/janrosenow/status/1838227323641892869){target="_blank"}
+- Rosenow, Jan (2024). [Tweet](https://x.com/janrosenow/status/1838227323641892869)
 
-- Ember (2024). [Tweet](https://x.com/EmberClimate/status/1593928367082033155){target="_blank"}
+- Ember (2024). [Tweet](https://x.com/EmberClimate/status/1593928367082033155)
 
-- Dunleavy, Tom (2024). [Tweet](https://x.com/dunleavy89/status/1833167150690730345){target="_blank"}
+- Dunleavy, Tom (2024). [Tweet](https://x.com/dunleavy89/status/1833167150690730345)
 
-::editorial
+{{Editorial}}

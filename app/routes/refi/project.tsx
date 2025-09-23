@@ -3,6 +3,7 @@ import { useLoaderData, useParams, useLocation, Link } from "react-router-dom";
 import Modal from "~/components/modal";
 import { ArrowUpCircle, ArrowDownCircle, ChevronDown, ChevronUp, Info } from "lucide-react";
 import { iconMap } from "~/components/icons"
+import { apiFetch } from "~/api/client";
 
 /** ---- Types you can extend as needed ---- */
 type ProjectCategory = { name: string; slug: string };
@@ -11,8 +12,20 @@ type Project = {
   logo?: string;
   description_short?: string;
   categories?: ProjectCategory[];
+  baserow_id: number;
   // add other fields from /projects/:slug as you use them
 };
+
+type ProjectMetric = {
+    name: string;
+    current_value: number;
+    current_value_date: string;
+    unit: string | null;
+    format: string | null;
+    description: string | null;
+    percent_change_7d: number | null;
+    percent_change_28d: number | null;
+}
 
 type ProjectContent = {
   fundraising?: any[];
@@ -56,6 +69,7 @@ export default function ProjectPage() {
   const data = useLoaderData() as Project; // from loader
   const { slug } = useParams();
   const location = useLocation();
+  const baserow_id = Number(data.id);
 
   // client-side “content” fetch
   const [content, setContent] = useState<ProjectContent | null>(null);
@@ -65,6 +79,7 @@ export default function ProjectPage() {
   const [showAll, setShowAll] = useState(false);
   const [open, setOpen] = useState(false);
   const [openId, setOpenId] = useState<string | null>(null);
+  const [metrics, setMetrics] = useState<any>(null);
 
   useEffect(() => {
     if (!slug) return;
@@ -84,15 +99,15 @@ export default function ProjectPage() {
       .catch(() => {
         if (!cancelled) setContentState("error");
       });
+
+    apiFetch(`/projects/${baserow_id}/metrics`)
+    .then((res) => res)
+    .then((data) => setMetrics(data))
+    .catch((err) => console.error("Error loading overview:", err));
     return () => {
       cancelled = true;
     };
   }, [slug]);
-
-//   // simple dynamic title without Helmet
-//   useEffect(() => {
-//     if (data?.name) document.title = `${data.name} | CARBON Copy`;
-//   }, [data?.name]);
 
   return (
     <>
@@ -210,105 +225,153 @@ export default function ProjectPage() {
             <section className="rounded-lg border bg-white p-4">
                 <h2 className="text-lg font-semibold mb-4">Impact</h2>
 
+                {/* loading/error states */}
                 {contentState === "loading" && <p className="text-sm">Loading impact…</p>}
                 {contentState === "error" && (
                     <p className="text-red-600 text-sm">Failed to load impact.</p>
                 )}
+
                 {contentState === "success" && (
                     <>
-                    {content?.impact?.length ? (
+                    {/* Numeric impact from /metrics */}
+                    {metrics?.length > 0 && (
                         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-                        {content.impact.map((impact: any, idx: number) => (
+                        {metrics.map((m: ProjectMetric, idx: number) => (
                             <div
-                            key={idx}
-                            className="rounded-lg border shadow-sm bg-white flex flex-col h-full"
+                                key={`metric-${idx}`}
+                                className="rounded-lg border shadow-sm bg-white flex flex-col h-full"
+                                >
+                                <div className="border-b px-3 py-2 font-medium flex items-center gap-2">
+                                    {m.name}
+                                    {m.description && (
+                                    <>
+                                        <button
+                                            onClick={() => setOpenId(`metric-${idx}`)}
+                                            className="text-blue-600 hover:text-blue-800 cursor-pointer"
+                                            >
+                                            <Info size={16} />
+                                        </button>
+                                        <Modal
+                                            open={openId === `metric-${idx}`}
+                                            onClose={() => setOpenId(null)}
+                                            title={m.name}
+                                            body={m.description}
+                                            key={`modal-metric-${idx}`}
+                                        />
+                                    </>
+                                    )}
+                                </div>
+                                <div className="flex-1 px-3 py-4 text-3xl font-semibold">
+                                    {m.format === "usd"
+                                    ? fmtUSD.format(m.current_value)
+                                    : m.current_value}
+                                    {m.unit && (
+                                    <span className="ml-1 text-lg font-normal">{m.unit}</span>
+                                    )}
+                                    <div className={`flex w-full gap-4 mt-4 text-sm font-normal`}>
+                                        <div className="flex items-center gap-1">
+                                            7d:{" "}
+                                            {m?.percent_change_7d < 0 ? (
+                                                <span className="text-red-600 inline-flex items-center gap-1">
+                                                    <ArrowDownCircle className="w-4 h-4" />
+                                                    {m.percent_change_7d}%
+                                                </span>
+                                                ) : m?.percent_change_7d > 0 ? (
+                                                <span className="text-green-600 inline-flex items-center gap-1">
+                                                    <ArrowUpCircle className="w-4 h-4" />
+                                                    {m.percent_change_7d}%
+                                                </span>
+                                                ) : (
+                                                <span>&nbsp;</span>
+                                            )}
+                                        </div>
+                                        <div className="flex items-center gap-1">
+                                            28d:{" "}
+                                            {m?.percent_change_28d < 0 ? (
+                                                <span className="text-red-600 inline-flex items-center gap-1">
+                                                    <ArrowDownCircle className="w-4 h-4" />
+                                                    {m.percent_change_28d}%
+                                                </span>
+                                                ) : m?.percent_change_28d > 0 ? (
+                                                <span className="text-green-600 inline-flex items-center gap-1">
+                                                    <ArrowUpCircle className="w-4 h-4" />
+                                                    {m.percent_change_28d}%
+                                                </span>
+                                                ) : (
+                                                <span>&nbsp;</span>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="border-t px-3 py-2 text-sm text-gray-500">
+                                    as of {new Date(m.current_value_date).toLocaleDateString()}
+                                </div>
+                            </div>
+                        ))}
+                        </div>
+                    )}
+
+                    {/* Text impact from Carbon Copy */}
+                    {content?.impact?.filter((i: any) => i.type === "text").length > 0 && (
+                        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3 mt-6">
+                        {content.impact
+                            .filter((i: any) => i.type === "text")
+                            .map((impact: any, idx: number) => (
+                            <div
+                                key={`impact-${idx}`}
+                                className="rounded-lg border shadow-sm bg-white flex flex-col h-full"
                             >
-                            {/* Numeric impact */}
-                            {impact.type === "numeric" ? (
-                                <>
-                                    <div className="border-b px-3 py-2 font-medium">
-                                        {impact.name}&nbsp;&nbsp;
-
-                                        {impact.details && (
-                                            <>
-                                                <button
-                                                    onClick={() => setOpenId(impact.id)}
-                                                    className="text-blue-600 hover:text-blue-800 cursor-pointer"
-                                                >
-                                                    <Info size={16} />
-                                                </button>
-
-                                                <Modal
-                                                    open={openId === impact.id}
-                                                    onClose={() => setOpenId(null)}
-                                                    title="Note"
-                                                    body={impact.details}
-                                                    key={impact.id}
-                                                ></Modal>
-                                            </>
-                                        )}
-                                    </div>
-                                    <div className="flex-1 px-3 py-4 text-3xl font-semibold">
-                                        {impact.metric}
-                                        <span className="ml-1 text-lg font-normal">
-                                        {impact.unit}
-                                        </span>
-                                    </div>
-                                    <div className="border-t px-3 py-2 text-sm text-gray-500">
-                                        as of {impact.date}
-                                    </div>
-                                </>
-                            ) : null}
-
-                            {/* Text impact */}
-                            {impact.type === "text" ? (
-                                <>
                                 <div className="px-3 py-3 flex-1 text-sm">
-                                    <span>
+                                <span>
                                     {impact.name.length > 200
-                                        ? impact.name.slice(0, 200) + "…"
-                                        : impact.name}
-                                    </span>
-                                    
+                                    ? impact.name.slice(0, 200) + "…"
+                                    : impact.name}
+                                </span>
+                                {impact.details && (
+                                    <>
                                     <button
-                                        onClick={() => setOpenId(impact.id)}
+                                        onClick={() => setOpenId(`impact-${idx}`)}
                                         className="text-blue-600 hover:text-blue-800 cursor-pointer"
                                     >
                                         <Info size={16} />
                                     </button>
-
                                     <Modal
-                                        open={openId === impact.id}
+                                        open={openId === `impact-${idx}`}
                                         onClose={() => setOpenId(null)}
                                         title={impact.name}
                                         body={impact.details}
                                         status={impact.status}
-                                        key={impact.id}
-                                    ></Modal>
-                                    <div className="mt-3">
+                                        key={`modal-impact-${idx}`}
+                                    />
+                                    </>
+                                )}
+                                <div className="mt-3">
                                     {impact.status === "Unverified" && (
-                                        <span className="inline-block rounded-full bg-gray-200 text-gray-700 text-xs px-2 py-1">
+                                    <span className="inline-block rounded-full bg-gray-200 text-gray-700 text-xs px-2 py-1">
                                         {impact.status}
-                                        </span>
+                                    </span>
                                     )}
                                     {impact.status === "Verified" && (
-                                        <span className="inline-block rounded-full bg-green-200 text-green-700 text-xs px-2 py-1">
+                                    <span className="inline-block rounded-full bg-green-200 text-green-700 text-xs px-2 py-1">
                                         {impact.status}
-                                        </span>
+                                    </span>
                                     )}
-                                    </div>
+                                </div>
                                 </div>
                                 <div className="border-t px-3 py-2 text-sm text-gray-500">
-                                    Completed {impact.date}
+                                Completed {impact.date}
                                 </div>
-                                </>
-                            ) : null}
                             </div>
-                        ))}
+                            ))}
                         </div>
-                    ) : (
-                        <p className="text-neutral-600 text-sm">No impact data available.</p>
                     )}
+
+                    {/* Fallback */}
+                    {(!metrics || metrics.length === 0) &&
+                        (!content?.impact ||
+                        content.impact.filter((i: any) => i.type === "text").length === 0) && (
+                        <p className="text-neutral-600 text-sm">No impact data available.</p>
+                        )}
                     </>
                 )}
                 </section>
@@ -517,8 +580,8 @@ export default function ProjectPage() {
 
                 {contentState === "loading" && (
                     <div className="flex justify-center my-5">
-                    <div className="animate-spin rounded-full h-6 w-6 border-2 border-blue-600 border-t-transparent"></div>
-                    <span className="sr-only">Loading fundraising data...</span>
+                        <div className="animate-spin rounded-full h-6 w-6 border-2 border-blue-600 border-t-transparent"></div>
+                        <span className="sr-only">Loading fundraising data...</span>
                     </div>
                 )}
 
