@@ -262,9 +262,7 @@ export default function ProjectPage() {
                                     )}
                                 </div>
                                 <div className="flex-1 px-3 py-4 text-3xl font-semibold">
-                                    {m.format === "usd"
-                                    ? fmtUSD.format(m.current_value)
-                                    : m.current_value}
+                                    {m.current_value.toLocaleString()}
                                     {m.unit && (
                                     <span className="ml-1 text-lg font-normal">{m.unit}</span>
                                     )}
@@ -282,7 +280,9 @@ export default function ProjectPage() {
                                                     {m.percent_change_7d}%
                                                 </span>
                                                 ) : (
-                                                <span>&nbsp;</span>
+                                                <span className="text-yellow-600 inline-flex items-center gap-1">
+                                                    {m.percent_change_7d}%
+                                                </span>
                                             )}
                                         </div>
                                         <div className="flex items-center gap-1">
@@ -298,7 +298,9 @@ export default function ProjectPage() {
                                                     {m.percent_change_28d}%
                                                 </span>
                                                 ) : (
-                                                <span>&nbsp;</span>
+                                                <span className="text-yellow-600 inline-flex items-center gap-1">
+                                                    {m.percent_change_28d}%
+                                                </span>
                                             )}
                                         </div>
                                     </div>
@@ -311,7 +313,7 @@ export default function ProjectPage() {
                         </div>
                     )}
 
-                    {/* Text impact from Carbon Copy */}
+                    {/* Text impact from old API */}
                     {content?.impact?.filter((i: any) => i.type === "text").length > 0 && (
                         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3 mt-6">
                         {content.impact

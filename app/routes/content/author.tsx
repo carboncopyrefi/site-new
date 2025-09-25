@@ -1,4 +1,3 @@
-import React from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 import fm from "front-matter";
 import Markdown from "react-markdown";

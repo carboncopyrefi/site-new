@@ -118,7 +118,9 @@ export default function Overview() {
                   {total.change7d}%
                 </span>
               ) : (
-                <span>&nbsp;</span>
+                <span className="text-yellow-600 inline-flex items-center gap-1">
+                  {total.change7d}%
+                </span>
               )}
             </div>
             <div className="flex items-center gap-1">
@@ -134,7 +136,9 @@ export default function Overview() {
                   {total.change28d}%
                 </span>
               ) : (
-                <span>&nbsp;</span>
+                <span className="text-yellow-600 inline-flex items-center gap-1">
+                  {total.change28d}%
+                </span>
               )}
             </div>
           </div>
