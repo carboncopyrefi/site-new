@@ -131,22 +131,22 @@
       "permanent": true
     },
     {
-      "source": "/this-week-in-refi/*",
+      "source": "/this-week-in-refi/(.*)",
       "destination": "/content/newsletter",
       "permanent": true
     },
     {
-      "source": "/this-week-in-refi/*/",
+      "source": "/this-week-in-refi/(.*)/",
       "destination": "/content/newsletter",
       "permanent": true
     },
     {
-      "source": "/reports/*",
+      "source": "/reports/(.*)",
       "destination": "/content/reports",
       "permanent": true
     },
     {
-      "source": "/reports/*/",
+      "source": "/reports/(.*)/",
       "destination": "/content/reports",
       "permanent": true
     }
