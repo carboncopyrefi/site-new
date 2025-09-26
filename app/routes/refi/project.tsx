@@ -235,7 +235,7 @@ export default function ProjectPage() {
                     <>
                     {/* Numeric impact from /metrics */}
                     {metrics?.length > 0 && (
-                        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                        <div className="grid gap-4 xl:grid-cols-2">
                         {metrics.map((m: ProjectMetric, idx: number) => (
                             <div
                                 key={`metric-${idx}`}
@@ -306,7 +306,7 @@ export default function ProjectPage() {
                                     </div>
                                 </div>
                                 <div className="border-t px-3 py-2 text-sm text-gray-500">
-                                    as of {new Date(m.current_value_date).toLocaleDateString()}
+                                    Last updated: {new Date(m.current_value_date).toLocaleDateString()}
                                 </div>
                             </div>
                         ))}

@@ -29,5 +29,7 @@ export default [
 		route("tokens", "routes/refi/tokens.tsx"),
 		route("venture-funding", "routes/refi/venture-funding.tsx"),
 		route("news", "routes/refi/news.tsx"),
-	])
+	]),
+	// 👇 Catch-all 404 route
+	route("*", "routes/errors/not-found.tsx"),
 ] satisfies RouteConfig;
