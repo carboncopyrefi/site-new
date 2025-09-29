@@ -77,7 +77,7 @@ export default function FeaturesPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <H1 className="mb-8">Features</H1>
+      <H1>Features</H1>
 
       <div className="divide-y divide-gray-200">
         {features.map((feature, i) => (

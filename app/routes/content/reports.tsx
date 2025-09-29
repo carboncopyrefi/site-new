@@ -62,7 +62,7 @@ export default function ReportsPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <H1 className="mb-8">Research Reports</H1>
+      <H1>Research Reports</H1>
 
       <div className="divide-y divide-gray-200">
         {reports.map((report, i) => (

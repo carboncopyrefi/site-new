@@ -119,7 +119,7 @@ useEffect(() => {
           <H1>
             {data.type_name}
           </H1>
-          <div className="grid auto-rows-min gap-4 grid-cols-1 xl:grid-cols-[1.4fr_1fr]">
+          <div className="grid auto-rows-min gap-4 grid-cols-1 xl:grid-cols-[1.5fr_1fr]">
             {/* Chart */}
             <div className="h-100 rounded-xl bg-muted/50 p-2 min-w-0 overflow-hidden">
               <ChartContainer config={lineChartConfig} className="w-full h-full">
@@ -148,7 +148,7 @@ useEffect(() => {
                         label={{
                           value: key.replace(/_/g, " "), // More readable
                           angle: -90,
-                          position: index % 2 === 0 ? "insideLeft" : "insideRight",
+                          position: index % 2 === 0 ? "left" : "right",
                           style: { textAnchor: "middle" },
                         }}
                       />
@@ -194,7 +194,7 @@ useEffect(() => {
               </p>
 
               {data.pie_chart?.items && data.pie_chart.items.length > 0 ? (
-                <ResponsiveContainer width="100%" height="100%">
+                <ResponsiveContainer width="100%" height="100%" className="text-sm">
                   <PieChart>
                     <Pie
                       data={data.pie_chart.items}
@@ -224,7 +224,7 @@ useEffect(() => {
                       })}
                     </Pie>
                     <Tooltip formatter={(value: number) => value.toLocaleString()} />
-                    <Legend verticalAlign="bottom" height={36} />
+                    {/* <Legend verticalAlign="bottom" height={36} iconSize={10} /> */}
                   </PieChart>
                 </ResponsiveContainer>
               ) : (
@@ -242,7 +242,7 @@ useEffect(() => {
               className="h-40 rounded-xl bg-muted/50 p-6 flex flex-col justify-center items-center"
               title={metric.description} // Tooltip
             >
-              <p className="text-[20px] md:text-[30px] font-bold text-center">
+              <p className="text-[30px] font-bold text-center">
                 {Number(metric.value).toLocaleString()}{" "}
                 {metric.unit && (
                   <span className="text-[10px] md:text-[15px] font-normal">
@@ -267,7 +267,7 @@ useEffect(() => {
 
           {/* Always include projects count */}
           <div className="h-40 rounded-xl bg-muted/50 p-6 flex flex-col justify-center items-center">
-            <p className="text-[30px] md:text-[30px] font-bold text-center">
+            <p className="text-[30px] font-bold text-center">
               {data.projects_count}
             </p>
             <p className="text-[14px] md:text-[16px] text-neutral-700 text-center">

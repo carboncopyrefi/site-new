@@ -73,7 +73,7 @@ export default function Landscape() {
 
   return (
     <div className="flex flex-1 flex-col gap-6 p-4 overflow-x-hidden relative">
-      <H1>Landscape</H1>
+      <H1>Projects</H1>
       <input
         type="text"
         placeholder="Search projects or categories..."
@@ -84,9 +84,9 @@ export default function Landscape() {
 
 
       {data.length === 0 ? (
-        <p className="text-neutral-500">Loading landscape...</p>
+        <p className="text-neutral-500">Loading projects...</p>
       ) : filteredData.length === 0 ? (
-        <p className="text-neutral-500">No results found.</p>
+        <p className="text-neutral-500">No projects found.</p>
       ) : (
         <div className="flex flex-col gap-8">
           {filteredData.map((cat, idx) => (

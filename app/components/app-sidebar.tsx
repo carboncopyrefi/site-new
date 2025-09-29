@@ -56,10 +56,15 @@ export function AppSidebar() {
 				const newSidebar: SidebarData = {
 					navMain: [
 						{
+							title: "Home",
+							url: "/",
+							isCollapsible: false,
+						},
+						{
 							title: "Impact",
 							url: "/impact",
 							isCollapsible: true,
-							items: [{ title: "Overview", url: "/overview" }, ...dynamicItems, { title: "Projects", url: "/projects" }],
+							items: [...dynamicItems, { title: "Projects", url: "/projects" }],
 							// items: [{ title: "Overview", url: "/overview" }, ...dynamicItems, { title: "Projects", url: "/projects" }, { title: "Chains", url: "/chains" }],
 						},
 						{

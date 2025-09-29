@@ -4,7 +4,7 @@ export default [
 	index("routes/home.tsx"),
 	route("impact", "routes/impact/impact.tsx", [
 		index("routes/impact/index.tsx"),
-		route("overview", "routes/impact/overview.tsx"),
+		// route("overview", "routes/impact/overview.tsx"),
 		route(":slug", "routes/impact/slug.tsx"),
 		route("chains", "routes/impact/chains.tsx"),
 		route("projects", "routes/impact/projects.tsx"),
