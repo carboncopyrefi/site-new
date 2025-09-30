@@ -39,7 +39,7 @@ useEffect(() => {
   })();
 }, [slug]);
 
-  if (loading) return <div className="p-4">Loading...</div>;
+  if (loading) return <div className="p-4">Loading impact data...</div>;
   if (!data) return <div className="p-4">Not Found</div>;
 
   const chartKeys = Object.keys(data.charts[0] || {}).filter(
@@ -214,6 +214,18 @@ useEffect(() => {
                           "#ef4444", // red
                           "#06b6d4", // cyan
                           "#9333ea", // purple
+                          "#a1a701ff", // indigo
+                          "#b700b4ff", // green
+                          "#e8e401ff", // amber
+                          "#851515ff", // red
+                          "#25565fff", // cyan
+                          "#cd98ffff", // purple
+                          "#9f9cd7ff", // indigo
+                          "#a3f7c2ff", // green
+                          "#fcd696ff", // amber
+                          "#fab3b3ff", // red
+                          "#9beffeff", // cyan
+                          "#3f2558ff", // purple
                         ];
                         return (
                           <Cell

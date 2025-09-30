@@ -52,7 +52,7 @@ export default function Overview() {
   }, []);
 
   if (!overview) {
-    return <div className="p-4">Loading...</div>;
+    return <div className="p-4">Loading CARBON Copy...</div>;
   }
 
   const { investment, grants, loans, total, timeseries } = overview;
