@@ -56,8 +56,8 @@ export default function Projects() {
 		fetchProjects();
 	}, []);
 
-	if (loading) return <p>Loading projects...</p>;
-	if (error) return <p>{error}</p>;
+	if (loading) return <div className="p-4">Loading projects...</div>;
+	if (error) return <div className="p-4">{error}</div>;
 	return (
 	<div className="flex flex-1 flex-col gap-4 p-4 overflow-x-hidden relative">
 		<div>

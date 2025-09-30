@@ -6,7 +6,6 @@ import {
 } from "~/components/ui/collapsible";
 import { ChevronRight, Loader } from "lucide-react";
 import { NavLink } from "react-router";
-import { apiFetch } from "../api/client";
 import {
 	Sidebar,
 	SidebarContent,
@@ -18,93 +17,18 @@ import {
 	SidebarMenuItem,
 	useSidebar
 } from "~/components/ui/sidebar";
+import { getSidebarData } from "./sidebar";
 
-type MetricType = {
-	name: string;
-	slug: string;
-};
-
-type SidebarData = {
-	navMain: {
-		title: string;
-		url: string;
-		isCollapsible?: boolean;
-		items?: {
-			title: string;
-			url: string;
-			isActive?: boolean;
-		}[];
-	}[];
-};
+// Sidebar data is bundled at build time
+const sidebarDataPromise = getSidebarData();
 
 export function AppSidebar() {
 	const [sidebarData, setSidebarData] = useState<SidebarData | null>(null);
-	const [loading, setLoading] = useState(true);
 	const { isMobile, setOpenMobile } = useSidebar();
 
 	useEffect(() => {
-		async function fetchMetricTypes() {
-			try {
-				const res = await apiFetch("/aggregate-metric-types");
-				const types: MetricType[] = await res;
-
-				const dynamicItems = types.map((type) => ({
-					title: type.name,
-					url: `/${type.slug}`,
-				}));
-
-				const newSidebar: SidebarData = {
-					navMain: [
-						{
-							title: "Home",
-							url: "/",
-							isCollapsible: false,
-						},
-						{
-							title: "Impact",
-							url: "/impact",
-							isCollapsible: true,
-							items: [...dynamicItems, { title: "Projects", url: "/projects" }],
-							// items: [{ title: "Overview", url: "/overview" }, ...dynamicItems, { title: "Projects", url: "/projects" }, { title: "Chains", url: "/chains" }],
-						},
-						{
-							title: "ReFi",
-							url: "/refi",
-							isCollapsible: true,
-							items: [{ title: "Projects", url: "/projects" }, { title: "Tokens", url: "/tokens" }, { title: "News", url: "/news" }, { title: "Venture Funding", url: "/venture-funding" }],
-						},
-						{
-							title: "Content",
-							url: "/content",
-							isCollapsible: true,
-							items: [{ title: "Features", url: "/features" }, { title: "Learn", url: "/learn" }, { title: "Reports", url: "/reports" }, { title: "Resources", url: "/resources" }, { title: "Newsletter", url: "/newsletter" }],
-						},
-						{
-							title: "About",
-							url: "/about",
-							isCollapsible: false,
-						},
-					],
-				};
-
-				setSidebarData(newSidebar);
-			} catch (error) {
-				console.error(error);
-			} finally {
-				setLoading(false);
-			}
-		}
-
-		fetchMetricTypes();
+		sidebarDataPromise.then(setSidebarData).catch(() => setSidebarData(null));
 	}, []);
-
-	if (loading) {
-		return (
-			<Sidebar variant="inset">
-				<SidebarContent className="bg-white p-4">Loading...</SidebarContent>
-			</Sidebar>
-		);
-	}
 
 	if (!sidebarData) {
 		return (
