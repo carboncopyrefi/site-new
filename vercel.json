@@ -41,12 +41,12 @@
       "permanent": true
     },
     {
-      "source": "/project/tokens/",
+      "source": "/projects/tokens/",
       "destination": "/refi/tokens",
       "permanent": true
     },
     {
-      "source": "/project/tokens",
+      "source": "/projects/tokens",
       "destination": "/refi/tokens",
       "permanent": true
     },
@@ -61,12 +61,12 @@
       "permanent": true
     },
     {
-      "source": "/category/:slug/",
+      "source": "/projects/categories/:slug/",
       "destination": "/refi/categories/:slug",
       "permanent": true
     },
     {
-      "source": "/category/:slug",
+      "source": "/projects/categories/:slug",
       "destination": "/refi/categories/:slug",
       "permanent": true
     },
@@ -98,16 +98,6 @@
     {
       "source": "/learn",
       "destination": "/content/learn",
-      "permanent": true
-    },
-    {
-      "source": "/learn/:slug/",
-      "destination": "/content/learn/:slug",
-      "permanent": true
-    },
-    {
-      "source": "/learn/:slug",
-      "destination": "/content/learn/:slug",
       "permanent": true
     },
     {
