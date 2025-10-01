@@ -101,15 +101,6 @@ async function fetchDynamicUrls(): Promise<string[]> {
       urls.push(`/content/authors/${slug}`);
     }
 
-    const reportDir = path.resolve("app", "content", "authors");
-    const reportSlugs = fs
-      .readdirSync(reportDir)
-      .filter((f) => f.endsWith(".md"))
-      .map((f) => f.replace(/\.md$/, ""));
-    for (const slug of reportSlugs) {
-      urls.push(`/content/reports/${slug}`);
-    }
-
   } catch (err) {
     console.error("⚠️ Failed to fetch dynamic URLs:", err);
   }
