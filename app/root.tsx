@@ -119,11 +119,12 @@ export function buildMeta(title: string, description: string, url: string, image
   const pageTitle = `${title} | CARBON Copy`
   return [
     { title: pageTitle },
-    {description: description},
+    {property: "description", content: description},
     {property: "og:title", content: pageTitle},
     {property: "og:description", content: description},
     {property: "og:image", content: image},
     {property: "og:url", content: url},
+    {property: "og:site_name", content: "CARBON Copy"},
     {property: "og:type", content: type},
     {property: "og:locale", content: "en_GB"},
     {property: "twitter:title", content: pageTitle},
