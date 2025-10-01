@@ -24,13 +24,34 @@ const sidebarDataPromise = getSidebarData();
 
 export function AppSidebar() {
 	const [sidebarData, setSidebarData] = useState<SidebarData | null>(null);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(false);
 	const { isMobile, setOpenMobile } = useSidebar();
 
 	useEffect(() => {
-		sidebarDataPromise.then(setSidebarData).catch(() => setSidebarData(null));
+		sidebarDataPromise
+			.then((data) => {
+				setSidebarData(data);
+				setError(false);
+			})
+			.catch(() => {
+				setError(true);
+				setSidebarData(null);
+			})
+			.finally(() => setLoading(false));
 	}, []);
 
-	if (!sidebarData) {
+	if (loading) {
+		return (
+			<Sidebar variant="inset">
+				<SidebarContent className="bg-white p-4 gap-2">
+					<span>Loading menu...</span>
+				</SidebarContent>
+			</Sidebar>
+		);
+	}
+
+	if (error || !sidebarData) {
 		return (
 			<Sidebar variant="inset">
 				<SidebarContent className="bg-white p-4">
