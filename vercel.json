@@ -32,12 +32,12 @@
     },
     {
       "source": "/dashboard",
-      "destination": "/impact/overview",
+      "destination": "/",
       "permanent": true
     },
      {
       "source": "/dashboard/",
-      "destination": "/impact/overview",
+      "destination": "/",
       "permanent": true
     },
     {
@@ -52,12 +52,12 @@
     },
     {
       "source": "/projects/knowledge/",
-      "destination": "/refi/resources/",
+      "destination": "/content/resources/",
       "permanent": true
     },
     {
       "source": "/projects/knowledge",
-      "destination": "/refi/resources/",
+      "destination": "/content/resources/",
       "permanent": true
     },
     {
