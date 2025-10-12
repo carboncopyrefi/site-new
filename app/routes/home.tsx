@@ -28,7 +28,7 @@ export function meta() {
   return [
     buildMeta(
       "ReFi Intelligence Platform",
-      "A data-driven tool tracking the Web3 regenerative finance (ReFi) ecosystem.",
+      "A data-driven platform tracking the Web3 regenerative finance (ReFi) ecosystem.",
       url,
     )
   ];

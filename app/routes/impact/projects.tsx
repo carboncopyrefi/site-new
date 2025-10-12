@@ -24,7 +24,7 @@ export function meta() {
   return [
     buildMeta(
       "Projects Integrated",
-      "See the ReFi projects that have had their data integrated to our impact dashboard.",
+      "See the ReFi projects that have their data integrated to our impact dashboard.",
       url,
     )
   ];

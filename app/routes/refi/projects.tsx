@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { buildMeta } from "~/root";
 import { H1 } from "~/components/ui/h1";
 
-const url = "https://carboncopy.news/refi/landscape";
+const url = "https://carboncopy.news/refi/projects";
 
 export function links() {
   return [{
