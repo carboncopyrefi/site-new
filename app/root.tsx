@@ -82,7 +82,7 @@ export default function App() {
         <header className="flex h-16 shrink-0 items-center justify-between border-b px-4">
           {/* Left side */}
           <SidebarTrigger className="-ml-1" />
-
+          
           {/* Right side: social icons */}
           <div className="flex items-center gap-4">
             <Link to="https://farcaster.xyz/carboncopy-refi" target="_blank" className="text-neutral-600 hover:text-neutral-900">
@@ -118,7 +118,8 @@ export default function App() {
 export function buildMeta(title: string, description: string, url: string, image: string = "https://carboncopy.news/meta.jpg", type: string = "website") {
   const pageTitle = `${title} | CARBON Copy`
   return [
-    { title: pageTitle },
+    {title: pageTitle},
+    {name: "description", content: description},
     {property: "description", content: description},
     {property: "og:title", content: pageTitle},
     {property: "og:description", content: description},
