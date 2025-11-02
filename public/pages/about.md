@@ -1,10 +1,6 @@
 **CARBON Copy is the preeminent source of ReFi news, information, and analysis.**
 
-We fill the information void in Web3 regenerative finance (ReFi) by providing news, education, expert analysis, industry reports, and data to help industry stakeholders better understand the space and to get projects more exposure.
-
-A core part of this is our comprehensive, curated ReFi company database. Each company has its own profile page complete with contact info, news, media coverage, content feed, token and fundraising data, and more. Each category in our taxonomy also has its own dedicated page showing aggregated data.
-
-As part of our data efforts, we have launched a beta version of our ReFi Impact Dashboard which aims to aggregate and quantify the impact being made by projects in the space.
+We are a data-first intelligence platform for the Web3 regenerative finance (ReFi) ecosystem. Our mission is to help demonstrate and promote the ecosystem's collective impact.
 
 ## Contacts
 
