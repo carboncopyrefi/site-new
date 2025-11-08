@@ -124,7 +124,7 @@ export default function Landscape() {
               : "bg-neutral-200 text-neutral-700"
           }`}
         >
-          Categories
+          By Category
         </button>
         <button
           onClick={() => setView("sdg")}
@@ -134,7 +134,7 @@ export default function Landscape() {
               : "bg-neutral-200 text-neutral-700"
           }`}
         >
-          SDGs
+          By SDG
         </button>
       </div>
 
@@ -181,7 +181,7 @@ export default function Landscape() {
         <div className="flex flex-col gap-8">
           {filteredSDGs.map((sdgGroup, idx) => (
             <div key={idx} className="flex flex-col gap-3 mb-4">
-              <div className="grid grid-cols-5 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
+              <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
                 <SdgBadges
                   sdgs={[
                     {
@@ -191,9 +191,9 @@ export default function Landscape() {
                   ]}
                   layout="inline"
                 />
-                <h3 className="font-semibold text-lg col-span-4 md:col-span-3 lg:col-span-5 xl:col-span-7">{sdgGroup.sdg}</h3>
+                <h3 className="font-semibold text-lg col-span-2 lg:col-span-3 xl:col-span-5 bg-gray-100 p-4">{sdgGroup.sdg}</h3>
               </div>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 mb-6">
                 {sdgGroup.projects.map((proj, pIdx) =>
                   proj.logo ? (
                     <Link key={pIdx} to={`../projects/${proj.slug}`}>
