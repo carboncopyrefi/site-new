@@ -4,15 +4,18 @@ import Modal from "~/components/modal";
 import { ArrowUpCircle, ArrowDownCircle, ChevronDown, ChevronUp, Info } from "lucide-react";
 import { iconMap } from "~/components/icons"
 import { apiFetch } from "~/api/client";
+import { SdgBadges } from "~/components/sdg-badges";
 
 /** ---- Types you can extend as needed ---- */
 type ProjectCategory = { name: string; slug: string };
+type SDG = { id: number, value: string }
 type Project = {
   name: string;
   logo?: string;
   description_short?: string;
   categories?: ProjectCategory[];
   baserow_id: number;
+  sdg: SDG[]
   // add other fields from /projects/:slug as you use them
 };
 
@@ -39,6 +42,7 @@ type ProjectContent = {
 /** ---- SERVER/LOADER fetch: runs on the server if you enable SSR later ---- */
 export async function loader({ params }: { params: { slug: string } }) {
   const res = await fetch(`https://api.carboncopy.news/projects/${params.slug}`);
+    // const res = await fetch(`http://127.0.0.1:5000/projects/${params.slug}`);
   if (!res.ok) {
     throw new Response("Project not found", { status: res.status });
   }
@@ -139,9 +143,9 @@ export default function ProjectPage() {
         </div>
 
         {/* 2-column layout on lg+, single column below */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
             {/* Left column */}
-            <div className="lg:col-span-8 space-y-6">
+            <div className="xl:col-span-8 space-y-6">
             {/* Header card */}
             <div className="rounded-lg border bg-white p-4">
                 <div className="flex flex-col md:flex-row gap-6">
@@ -550,7 +554,16 @@ export default function ProjectPage() {
             </div>
 
             {/* Right column */}
-            <aside className="lg:col-span-4 space-y-6">
+            <aside className="xl:col-span-4 space-y-6">
+            
+            
+                {!data?.sdg?.length ? (
+                    <span></span>
+                ) : (
+                    <section>
+                        <SdgBadges sdgs={data.sdg} layout="grid" columns={4} />
+                    </section>
+                )}
 
                 {/* Fundraising section */}
 
