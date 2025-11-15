@@ -1,0 +1,28 @@
+# CARBON Copy - ReFi Intelligence Platform
+
+CARBON Copy is a data-driven platform tracking the Web3 regenerative finance (ReFi) ecosystem.
+
+## General Information
+- [About](https://carboncopy.news/about): Overview of CARBON Copy and its mission to provide comprehensive ReFi information and resources.
+
+## Impact Data
+- [Ecological Credits](https://carboncopy.news/impact/ecological-credits): Impact data from ReFi projects working in ecological credits.
+- [Grants](https://carboncopy.news/impact/grants): Impact data from ReFi projects working in grants to impact projects.
+- [Investment](https://carboncopy.news/impact/investment): Impact data from ReFi projects working towards investment in impact projects.
+- [Lending](https://carboncopy.news/impact/lending): Impact data from ReFi projects working in lending to impact projects.
+- [Renewable Energy](https://carboncopy.news/impact/renewable-energy): Impact data from ReFi projects working in renewable energy.
+- [Stablecoins](https://carboncopy.news/impact/stablecoins): Impact data from ReFi projects working in impact stablecoins.
+- [Universal Basic Income](https://carboncopy.news/impact/ubi): Impact data from ReFi projects working in universal basic income
+- [Waste](https://carboncopy.news/impact/waste):Impact data from ReFi projects working in waste management.
+
+## ReFi Landscape
+- [Projects](https://carboncopy.news/refi/projects): A catalog of active ReFi projects organised by category and UN Sustainable Development Goals.
+- [News](https://carboncopy.news/refi/news): A list of recent news items from ptojects in the ReFi ecosystem.
+- [Tokens](https://carboncopy.news/refi/tokens): A list of the tokens issued by projects within the ReFi space.
+
+## Content
+- [Features](https://carboncopy.news/content/features): A list of the feature articles published by CARBON Copy.
+- [Learn](https://carboncopy.news/content/learn): Educational materials aimed at enhancing understanding of ReFi concepts and practices.
+- [Web3 Regenerative Finance (ReFi) Explained](https://carboncopy.news/content/learn/regenerative-finance-refi-explained): A practical explanation of ReFi - a new approach to finance underpinned by blockchain, cryptocurrency, and smart contracts.
+- [Reports](https://carboncopy.news/content/reports): A list of ReFi research reports produced by CARBON Copy
+- [The State of ReFi Report 2025](https://carboncopy.news/content/assets/The%20State%20of%20ReFi%20Report%202025.pdf): CARBON Copy's latest research report on the state of the ReFi ecosystem.
