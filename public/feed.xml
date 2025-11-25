@@ -15,11 +15,24 @@
     <language>en</language>
     <copyright>Copyright (c) 2025 CARBON Copy. All rights reserved</copyright>
     <item>
+        <title>A Funding Readiness Framework for ReFi and Beyond</title>
+        <link>https://carboncopy.news/content/features/funding-readiness-framework-refi-beyond</link>
+        <description>Trinity Morphy summarises the results of the research sprint the CARBON Copy team conducted as part of the Allo Research Quest.</description>
+        <guid>https://carboncopy.news/features/funding-readiness-framework-refi-beyond</guid>
+        <enclosure url="https://carboncopy.news/images/funding-readiness-article-title.jpg" type="image/jpg" length="1" />
+        <pubDate>Tue, 25 Nov 2025 07:20:00 GMT</pubDate>
+        <category>Web3</category>
+        <category>Regenerative Finance</category>
+        <category>Fundraising</category>
+        <category>Grants</category>
+        <author>trinity@carboncopy.news (Trinity Morphy)</author>
+    </item>
+    <item>
         <title>Identifying ReFi Revenue Models</title>
         <link>https://carboncopy.news/features/refi-revenue-models/</link>
         <description>Trinity Morphy enumerates the revenue models currently employed by ReFi projects and teases further research into funding readiness.</description>
         <guid>https://carboncopy.news/features/refi-revenue-models/</guid>
-        <enclosure url="https://carboncopy.news/_ipx/w_600/images/revenue-model-article-title.jpg" type="image/jpg" length="1" />
+        <enclosure url="https://carboncopy.news/images/revenue-model-article-title.jpg" type="image/jpg" length="1" />
         <pubDate>Thu, 28 Aug 2025 09:20:00 GMT</pubDate>
         <category>Web3</category>
         <category>Regenerative Finance</category>
