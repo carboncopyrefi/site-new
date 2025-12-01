@@ -186,6 +186,8 @@ useEffect(() => {
                         palette[0],
                         palette[1],
                         palette[2],
+                        palette[3],
+                        palette[4]
                       ];
                       const strokeColor =
                         getComputedStyle(document.documentElement)
@@ -273,7 +275,7 @@ useEffect(() => {
                 </thead>
                 <tbody>
                   {data.table.rows.map((row: any[], i: number) => (
-                    <tr key={i} className="border-t">
+                    <tr key={i} className="border-t" style={{ borderColor: `${bg}30` }}>
                       {row.map((cell, j) => (
                         <td key={j} className="px-4 py-2">
                           {typeof cell === "number"

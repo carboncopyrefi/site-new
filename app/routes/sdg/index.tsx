@@ -116,7 +116,7 @@ useEffect(() => {
                 flex flex-col p-4
               "
             >
-              <p className="text-lg text-gray-800">{goal.description}</p>
+              <p className="text-md text-gray-800">{goal.description}</p>
 
               <Link
                 to={`/sdg/${goal.slug}`}

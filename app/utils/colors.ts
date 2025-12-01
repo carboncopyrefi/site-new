@@ -67,6 +67,8 @@ export function buildPalette(base) {
   return [
     base,                  // Main SDG color
     darken(base, 20),      // Darker shade
-    shiftHue(base, 40)     // Analogous color for contrast
+    shiftHue(base, 40),     // Analogous color for contrast
+    shiftHue(base, 60),
+    shiftHue(base, 80)
   ];
 }
