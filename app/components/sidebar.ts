@@ -28,6 +28,11 @@ export async function getSidebarData(): Promise<SidebarData> {
         items: [...dynamicItems, { title: "Projects", url: "/projects" }],
       },
       {
+        title: "SDG Tracker",
+        url: "/sdg",
+        isCollapsible: false
+      },
+      {
         title: "ReFi",
         url: "/refi",
         isCollapsible: true,

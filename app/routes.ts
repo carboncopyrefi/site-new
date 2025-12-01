@@ -9,6 +9,10 @@ export default [
 		route("chains", "routes/impact/chains.tsx"),
 		route("projects", "routes/impact/projects.tsx"),
 	]),
+	route("sdg", "routes/sdg/sdg.tsx", [
+		index("routes/sdg/index.tsx"),
+		route(":slug", "routes/sdg/slug.tsx")
+	]),
 	route("content", "routes/content/content.tsx", [
 		index("routes/content/index.tsx"),
 		route("resources", "routes/content/resources.tsx"),
