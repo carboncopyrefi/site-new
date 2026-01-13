@@ -7,13 +7,24 @@ import { apiFetch } from "~/api/client";
 import { SdgBadges } from "~/components/sdg-badges";
 
 /** ---- Types you can extend as needed ---- */
+type ProjectLink = {
+  url: string;
+  icon: string;
+  platform: string;
+};
 type ProjectCategory = { name: string; slug: string };
 type SDG = { id: number, value: string }
 type Project = {
+  slug: string;
   name: string;
   logo?: string;
-  description_short?: string;
+  description?: string;
+  location?: string;
+  protocols?: [string]
+  links?: ProjectLink[];
+  founders?: [{name: string; platforms: [{platform: string; url: string}]}]
   categories?: ProjectCategory[];
+  coverage?: [{headline: string; publication: string; url:string; date: string; sort_date: number }];
   baserow_id: number;
   sdg: SDG[]
   // add other fields from /projects/:slug as you use them
@@ -41,13 +52,12 @@ type ProjectContent = {
 
 /** ---- SERVER/LOADER fetch: runs on the server if you enable SSR later ---- */
 export async function loader({ params }: { params: { slug: string } }) {
-  const res = await fetch(`https://api.carboncopy.news/projects/${params.slug}`);
-    // const res = await fetch(`http://127.0.0.1:5000/projects/${params.slug}`);
-  if (!res.ok) {
+    const res = await apiFetch(`/projects/${params.slug}`);
+    // const data: Project = await res.json();
+    if (!res) {
     throw new Response("Project not found", { status: res.status });
   }
-  const data: Project = await res.json();
-  return data;
+    return res;
 }
 
 // helpers
@@ -117,9 +127,9 @@ export default function ProjectPage() {
     <>
         {/* React 19 native metadata support */}
         <title>{`${data.name} | CARBON Copy`}</title>
-        {data.description_short && <meta name="description" content={data.description_short} />}
-        {data.description_short && <meta property="og:description" content={data.description_short} />}
-        {data.description_short && <meta property="twitter:description" content={data.description_short} />}
+        {data.description && <meta name="description" content={data.description} />}
+        {data.description && <meta property="og:description" content={data.description} />}
+        {data.description && <meta property="twitter:description" content={data.description} />}
         <meta property="og:title" content={`${data.name} | CARBON Copy`} />
         <meta property="twitter:title" content={`${data.name} | CARBON Copy`} />
         <meta property="og:image" content={`https://carboncopy.news${data.logo}`} />
@@ -162,8 +172,8 @@ export default function ProjectPage() {
                     <div className="flex-1">
                     {/* Name + description */}
                     <h1 className="text-2xl font-semibold">{data?.name}</h1>
-                    {data?.description_short && (
-                        <p className="text-neutral-600 mt-2">{data.description_short}</p>
+                    {data?.description && (
+                        <p className="text-neutral-600 mt-2">{data.description}</p>
                     )}
 
                     {/* Categories */}
@@ -216,7 +226,7 @@ export default function ProjectPage() {
                             key={i}
                             className="inline-block rounded-full bg-purple-600/10 text-purple-700 px-3 py-1 text-xs"
                             >
-                            {p.value}
+                            {p}
                             </span>
                         ))}
                         </div>
@@ -667,11 +677,11 @@ export default function ProjectPage() {
                 <section className="rounded-lg border bg-white p-4">
                 <h2 className="text-lg font-semibold mb-4">Founders</h2>
 
-                {!data?.founder?.length ? (
+                {!data?.founders?.length ? (
                     <p className="text-neutral-600 text-sm">No founders added</p>
                 ) : (
                     <div className="space-y-4 text-sm">
-                    {data.founder.map((person: any, idx: number) => (
+                    {data.founders.map((person: any, idx: number) => (
                         <div key={idx}>
                         <span className="font-medium">{person.name}</span>
 
