@@ -41,10 +41,10 @@ export default function Projects() {
 			setLoading(true);
 			setError(null);
 
-			const res = await apiFetch("/projects");
+			const res = await apiFetch("/impact/projects");
 
 			const data = await res;
-			setProjects(data); // Assuming API returns the same shape as ProjectData[]
+			setProjects(data);
 		} catch (err) {
 			console.error("Error fetching projects:", err);
 			setError("Failed to load projects.");
