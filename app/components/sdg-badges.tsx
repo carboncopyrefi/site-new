@@ -2,8 +2,8 @@ import React from "react";
 import { sdgIconMap } from "../utils/sdgMap";
 
 interface SDG {
-  id: number;
-  value: string;
+  sort_id: number;
+  sdg: string;
 }
 
 interface SdgBadgesProps {
@@ -38,7 +38,7 @@ export const SdgBadges: React.FC<SdgBadgesProps> = ({
     return (
       <div className={baseClass} style={style}>
         {sdgs.map((goal) => {
-          const goalPrefix = goal.value.split(" - ")[0];
+          const goalPrefix = goal.sdg.split(" - ")[0];
           const iconFilename = sdgIconMap[goalPrefix];
           const iconPath = iconFilename
             ? `/images/sdg/${iconFilename}`
@@ -46,12 +46,12 @@ export const SdgBadges: React.FC<SdgBadgesProps> = ({
 
           return (
             <div
-              key={goal.id}
+              key={goal.sort_id}
               className="flex flex-col items-center justify-center p-2"
             >
               <img
                 src={iconPath}
-                alt={goal.value}
+                alt={goal.sdg}
                 className="object-contain max-w-full" 
                 onError={(e) => {
                   // hide broken images gracefully (or set fallback src)

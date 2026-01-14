@@ -13,7 +13,7 @@ type ProjectLink = {
   platform: string;
 };
 type ProjectCategory = { name: string; slug: string };
-type SDG = { id: number, value: string }
+type SDG = { sdg: number, sort_id: string }
 type Project = {
   slug: string;
   name: string;
@@ -593,7 +593,7 @@ export default function ProjectPage() {
                 </div>
 
                 {contentState === "loading" && (
-                    <div className="flex justify-center my-5">
+                    <div className="flex my-5">
                         <span className="text-sm">Loading fundraising data...</span>
                     </div>
                 )}
@@ -740,27 +740,39 @@ export default function ProjectPage() {
 
                 <section className="rounded-lg border bg-white p-4">
                     <h2 className="text-lg font-semibold mb-4">Latest News</h2>
-
-                    {!content?.news?.length ? (
-                        <p className="text-neutral-600 text-sm">No news added</p>
-                    ) : (
-                        <div className="space-y-4 text-sm">
-                        {content.news.slice(0, 5).map((article: any, idx: number) => (
-                            <div key={idx}>
-                            <small className="text-gray-500">{article.date}</small>
-                            <Link
-                                to={article.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block text-gray-900 hover:underline"
-                            >
-                                <p className="font-semibold inline-flex items-center gap-1">
-                                {article.headline}
-                                </p>
-                            </Link>
-                            </div>
-                        ))}
+                    {contentState === "success" && (
+                        <>
+                            {!content?.news?.length ? (
+                                <p className="text-neutral-600 text-sm">No news added</p>
+                            ) : (
+                                <div className="space-y-4 text-sm">
+                                {content.news.slice(0, 5).map((article: any, idx: number) => (
+                                    <div key={idx}>
+                                    <small className="text-gray-500">{article.date}</small>
+                                    <Link
+                                        to={article.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="block text-gray-900 hover:underline"
+                                    >
+                                        <p className="font-semibold inline-flex items-center gap-1">
+                                        {article.headline}
+                                        </p>
+                                    </Link>
+                                    </div>
+                                ))}
+                                </div>
+                            )}
+                        </>
+                    )}
+                    {contentState === "loading" && (
+                        <div className="flex my-5">
+                            <span className="text-sm">Loading project news...</span>
                         </div>
+                    )}
+
+                    {contentState === "error" && (
+                        <p className="text-red-600 text-sm">Failed to load project news.</p>
                     )}
                 </section>
 
