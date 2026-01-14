@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { buildMeta } from "~/root";
 import { H1 } from "~/components/ui/h1";
 import { SdgBadges } from "~/components/sdg-badges";
+import { apiFetch } from "~/api/client";
 
 const url = "https://carboncopy.news/refi/projects";
 
@@ -56,12 +57,10 @@ export default function Landscape() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch("https://api.carboncopy.news/landscape");
-        // const res = await fetch("http://127.0.0.1:5000/landscape");
-        const json = await res.json();
-        setData(json);
+        const res = await apiFetch("/landscape");
+        setData(res);
       } catch (err) {
-        console.error("Failed to fetch landscape:", err);
+        throw new Response("Error loading landscape");
       }
     }
     fetchData();

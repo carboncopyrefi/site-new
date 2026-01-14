@@ -44,9 +44,10 @@ type ProjectMetric = {
 type ProjectContent = {
   fundraising?: any[];
   activity?: any[];
-  impact?: any[];
+  impact?: ProjectMetric[];
   feed?: any[];
   token?: any[];
+  news?: any[];
   // add other fields from /projects/:slug/content as you use them
 };
 
@@ -83,7 +84,6 @@ export default function ProjectPage() {
   const data = useLoaderData() as Project; // from loader
   const { slug } = useParams();
   const location = useLocation();
-  const baserow_id = Number(data.id);
 
   // client-side “content” fetch
   const [content, setContent] = useState<ProjectContent | null>(null);
@@ -93,35 +93,26 @@ export default function ProjectPage() {
   const [showAll, setShowAll] = useState(false);
   const [open, setOpen] = useState(false);
   const [openId, setOpenId] = useState<string | null>(null);
-  const [metrics, setMetrics] = useState<any>(null);
+//   const [metrics, setMetrics] = useState<ProjectMetric | null>(null);
 
   useEffect(() => {
     if (!slug) return;
     let cancelled = false;
     setContentState("loading");
-    fetch(`https://api.carboncopy.news/projects/${slug}/content`)
-      .then((r) => {
-        if (!r.ok) throw new Error("Failed to load content");
-        return r.json();
-      })
-      .then((json) => {
-        if (!cancelled) {
-          setContent(json);
-          setContentState("success");
-        }
-      })
-      .catch(() => {
+    apiFetch(`/projects/${slug}/content`)
+        .then((res) => res)
+        .then((json) => {
+            setContent(json);
+            setContentState("success");
+        })
+        .catch(() => {
         if (!cancelled) setContentState("error");
-      });
-
-    apiFetch(`/projects/${baserow_id}/metrics`)
-    .then((res) => res)
-    .then((data) => setMetrics(data))
-    .catch((err) => console.error("Error loading overview:", err));
+        });
     return () => {
-      cancelled = true;
+        cancelled = true;
     };
-  }, [slug]);
+    }, [slug]);
+
 
   return (
     <>
@@ -248,9 +239,9 @@ export default function ProjectPage() {
                 {contentState === "success" && (
                     <>
                     {/* Numeric impact from /metrics */}
-                    {metrics?.length > 0 && (
+                    {content?.impact?.length > 0 && (
                         <div className="grid gap-4 xl:grid-cols-2">
-                        {metrics.map((m: ProjectMetric, idx: number) => (
+                        {content.impact.map((m: ProjectMetric, idx: number) => (
                             <div
                                 key={`metric-${idx}`}
                                 className="rounded-lg border shadow-sm bg-white flex flex-col h-full"
@@ -327,7 +318,7 @@ export default function ProjectPage() {
                         </div>
                     )}
 
-                    {/* Text impact from old API */}
+                    {/* Text impact from old API
                     {content?.impact?.filter((i: any) => i.type === "text").length > 0 && (
                         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3 mt-6">
                         {content.impact
@@ -380,12 +371,10 @@ export default function ProjectPage() {
                             </div>
                             ))}
                         </div>
-                    )}
+                    )} */}
 
                     {/* Fallback */}
-                    {(!metrics || metrics.length === 0) &&
-                        (!content?.impact ||
-                        content.impact.filter((i: any) => i.type === "text").length === 0) && (
+                    {(!content.impact || content.impact.length === 0) && (
                         <p className="text-neutral-600 text-sm">No impact data available.</p>
                         )}
                     </>
@@ -605,13 +594,12 @@ export default function ProjectPage() {
 
                 {contentState === "loading" && (
                     <div className="flex justify-center my-5">
-                        <div className="animate-spin rounded-full h-6 w-6 border-2 border-blue-600 border-t-transparent"></div>
-                        <span className="sr-only">Loading fundraising data...</span>
+                        <span className="text-sm">Loading fundraising data...</span>
                     </div>
                 )}
 
                 {contentState === "error" && (
-                    <p className="text-red-600">Failed to load fundraising.</p>
+                    <p className="text-red-600 text-sm">Failed to load fundraising.</p>
                 )}
 
                 {contentState === "success" && (
@@ -753,11 +741,11 @@ export default function ProjectPage() {
                 <section className="rounded-lg border bg-white p-4">
                     <h2 className="text-lg font-semibold mb-4">Latest News</h2>
 
-                    {!data?.news?.length ? (
+                    {!content?.news?.length ? (
                         <p className="text-neutral-600 text-sm">No news added</p>
                     ) : (
                         <div className="space-y-4 text-sm">
-                        {data.news.slice(0, 5).map((article: any, idx: number) => (
+                        {content.news.slice(0, 5).map((article: any, idx: number) => (
                             <div key={idx}>
                             <small className="text-gray-500">{article.date}</small>
                             <Link
