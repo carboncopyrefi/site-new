@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
 import { ArrowUpCircle, ArrowDownCircle } from "lucide-react";
 import { H1 } from "~/components/ui/h1";
+import { apiFetch } from "~/api/client";
 
 interface Project {
   slug: string;
@@ -24,8 +25,8 @@ interface Token {
 }
 
 interface NewsItem {
-  title: string;
-  link: string;
+  headline: string;
+  url: string;
   date: string;
 }
 
@@ -39,6 +40,7 @@ interface CategoryResponse {
   projects: Project[];
   fundraising: Fundraising[];
   news: NewsItem[];
+  tokens: Token[];
 }
 
 export default function CategoryPage() {
@@ -53,24 +55,13 @@ export default function CategoryPage() {
   useEffect(() => {
     async function fetchCategory() {
       try {
-        const res = await fetch(
-          `https://api.carboncopy.news/projects/categories/${slug}`
+        const res = await apiFetch(
+          `/categories/${slug}`
         );
-        const category = await res.json();
+        const category = await res;
         setData(category);
-
-        if (category.tokens) {
-          setLoadingTokens(true);
-          const tokenRes = await fetch(
-            `https://api.carboncopy.news/projects/categories/tokens?ids=${category.tokens}`
-          );
-          const tokenData = await tokenRes.json();
-          setTokens(tokenData);
-        }
       } catch (e) {
         console.error("Failed to load category:", e);
-      } finally {
-        setLoadingTokens(false);
       }
     }
     fetchCategory();
@@ -176,12 +167,8 @@ export default function CategoryPage() {
             <div>
               <h2 className="text-xl font-semibold mb-3">Tokens</h2>
               <div className="border rounded-lg p-4">
-                {loadingTokens ? (
-                  <p className="text-center text-sm text-gray-500">
-                    Loading token data...
-                  </p>
-                ) : tokens?.length ? (
-                  tokens.map((token, idx) => (
+                {data.tokens?.length ? (
+                  data.tokens.map((token, idx) => (
                     <div
                       key={idx}
                       className="grid grid-cols-6 items-center py-1 text-sm"
@@ -219,7 +206,7 @@ export default function CategoryPage() {
                     </div>
                   ))
                 ) : (
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm">
                     No token data available
                   </p>
                 )}
@@ -228,19 +215,19 @@ export default function CategoryPage() {
 
             {/* News */}
             <div>
-              <h2 className="text-xl font-semibold mb-3">News</h2>
+              <h2 className="text-xl font-semibold mb-3">Recent News</h2>
               <div className="border rounded-lg p-4">
                 {data.news?.length ? (
                   data.news.map((item, idx) => (
                     <div key={idx} className="py-1 text-sm">
                       <small className="text-gray-500">{item.date}</small>
                       <a
-                        href={item.link}
+                        href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block font-semibold text-gray-800 hover:underline"
                       >
-                        {item.title}
+                        {item.headline}
                       </a>
                     </div>
                   ))
