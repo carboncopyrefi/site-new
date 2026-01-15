@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { buildMeta } from "~/root"
 import { H1 } from "~/components/ui/h1";
+import { apiFetch } from "~/api/client";
 
 interface Newsletter {
-  _path: string;
+  url: string;
   date: string;
   mainImage: string;
   title: string;
@@ -33,10 +34,9 @@ export default function NewsletterPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://api.carboncopy.news/newsletter")
-      .then((res) => res.json())
-      .then((data) => {
-        setNewsletters(data);
+    apiFetch("/content/newsletter")
+      .then((res) => {
+        setNewsletters(res);
         setLoading(false);
       })
       .catch((err) => {
@@ -59,7 +59,7 @@ export default function NewsletterPage() {
         {newsletters.map((n, idx) => (
           <a
             key={idx}
-            href={n._path}
+            href={n.url}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white border rounded-lg shadow hover:shadow-md transition flex flex-col"

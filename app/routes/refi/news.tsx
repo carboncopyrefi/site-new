@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { buildMeta } from "~/root"
 import { H1 } from "~/components/ui/h1";
+import { apiFetch } from "~/api/client";
 
 const url = "https://carboncopy.news/refi/news";
 
@@ -24,8 +25,8 @@ export function meta() {
 interface NewsItem {
   company: string;
   date: string;
-  link: string;
-  title: string;
+  url: string;
+  headline: string;
 }
 
 export default function News() {
@@ -36,8 +37,8 @@ export default function News() {
   useEffect(() => {
     async function fetchNews() {
       try {
-        const res = await fetch("https://api.carboncopy.news/news");
-        const data = await res.json();
+        const res = await apiFetch("/news");
+        const data = await res
         setNews(data);
         setFiltered(data);
       } catch (e) {
@@ -54,7 +55,7 @@ export default function News() {
       news.filter(
         (n) =>
           n.company.toLowerCase().includes(q) ||
-          n.title.toLowerCase().includes(q)
+          n.headline.toLowerCase().includes(q)
       )
     );
   }, [search, news]);
@@ -80,12 +81,12 @@ export default function News() {
                 {new Date(item.date).toISOString().split("T")[0]}
               </div>
               <a
-                href={item.link}
+                href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-lg hover:underline"
               >
-                {item.title}
+                {item.headline}
               </a>
             </div>
           ))}

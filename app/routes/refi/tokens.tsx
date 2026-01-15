@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowUpCircle, ArrowDownCircle } from "lucide-react";
 import { buildMeta } from "~/root"
 import { H1 } from "~/components/ui/h1";
+import { apiFetch } from "~/api/client";
 
 const url = "https://carboncopy.news/refi/tokens";
 
@@ -42,8 +43,8 @@ export default function Tokens() {
 
   useEffect(() => {
     async function fetchTokens() {
-      const res = await fetch("https://api.carboncopy.news/tokens");
-      const data = await res.json();
+      const res = await apiFetch("/tokens");
+      const data = await res;
       setTokens(data.tokens);
       setFilteredTokens(data.tokens);
     }
