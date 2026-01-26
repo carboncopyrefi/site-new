@@ -78,7 +78,7 @@ export default function AuthorPage() {
             <img
               src={data.mainImage}
               alt={data.title}
-              className="w-32 h-32 rounded-full object-cover"
+              className="w-32 h-32 rounded-full object-cover mt-0"
             />
           )}
           <div>

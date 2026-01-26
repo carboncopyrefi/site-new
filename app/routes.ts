@@ -15,7 +15,7 @@ export default [
 	]),
 	route("content", "routes/content/content.tsx", [
 		index("routes/content/index.tsx"),
-		route("resources", "routes/content/resources.tsx"),
+		// route("resources", "routes/content/resources.tsx"),
 		route("features", "routes/content/features.tsx"),
 		route("learn", "routes/content/learn.tsx"),
 		route("learn/:slug", "routes/content/feature-article.tsx", { id: "learn-article" }),
@@ -23,6 +23,8 @@ export default [
 		route("newsletter", "routes/content/newsletter.tsx"),
 		route("authors/:slug", "routes/content/author.tsx"),
 		route("features/:slug", "routes/content/feature-article.tsx"),
+		route("web3-tooling-series", "routes/content/web3-tooling.tsx"),
+		route("web3-tooling-series/:slug", "routes/content/feature-article.tsx", {id: "web3-tooling" })
 	]),
 	route("about", "routes/about.tsx"),
 	route("refi", "routes/refi/refi.tsx", [

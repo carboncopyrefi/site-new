@@ -172,7 +172,7 @@ export function AppSidebar() {
 					</SidebarGroupContent>
 				</SidebarGroup>
 				<div className="mt-auto p-4 text-xs text-gray-500">
-					Copyright © 2025<br />CARBON Copy
+					Copyright © 2026<br />CARBON Copy
 				</div>
 			</SidebarContent>
 		</Sidebar>

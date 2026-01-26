@@ -2,7 +2,7 @@
 
 title: Tereza Bizkova
 description: Colombia-based tech writer
-mainImage: "/images/author-tereza-bizkova.jpg"
+mainImage: "/content/assets/author-tereza-bizkova.jpg"
 twitter: "https://x.com/TerezaBizkova"
 
 ---

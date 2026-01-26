@@ -2,7 +2,7 @@
 
 title: Jean Baptiste Ngerejaho
 description: Freelance writer based in Kigali, Rwanda
-mainImage: "/images/author-jean-baptiste.jpg"
+mainImage: "/content/assets/author-jean-baptiste.jpg"
 linkedin: "https://www.linkedin.com/in/jean-baptiste-ngerejaho-a91244185"
 
 ---

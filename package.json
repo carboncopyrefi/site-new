@@ -21,6 +21,7 @@
 		"@react-router/serve": "^7.5.3",
 		"@tailwindcss/typography": "^0.5.16",
 		"@vercel/react-router": "^1.1.2",
+		"baseline-browser-mapping": "^2.9.18",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
 		"front-matter": "^4.0.2",

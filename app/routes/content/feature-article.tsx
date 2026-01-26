@@ -5,7 +5,6 @@ import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import LinkPreview from "~/components/link-preview";
 import remarkGfm from "remark-gfm";
-import type { Parent } from "mdast";
 
 const featureFiles = import.meta.glob("../../content/features/*.md", {
   eager: true,
@@ -19,9 +18,16 @@ const learnFiles = import.meta.glob("../../content/learn/*.md", {
   import: "default",
 });
 
+const web3ToolingFiles = import.meta.glob("../../content/web3-tooling/*.md", {
+  eager: true,
+  query: "?raw",
+  import: "default",
+});
+
 const files = {
   features: featureFiles,
   learn: learnFiles,
+  web3Tooling: web3ToolingFiles
 };
 
 function isExternalUrl(u?: unknown) {
@@ -33,7 +39,12 @@ export default function FeatureArticle() {
   const location = useLocation();
 
   const isLearn = location.pathname.includes("/learn");
-  const group = isLearn ? "learn" : "features";
+  const isWeb3Tooling = location.pathname.includes("/web3-tooling-series");
+  const group = isLearn
+    ? "learn"
+    : isWeb3Tooling
+      ? "web3Tooling"
+      : "features";
 
   // Grab the relevant file set
   const fileSet = files[group];
@@ -42,7 +53,7 @@ export default function FeatureArticle() {
     path.endsWith(`${slug}.md`)
   );
 
-  if (!entry) return <p>Article not found.</p>;
+  if (!entry) return <p className="p-6">Article not found.</p>;
 
   const [_, content] = entry;
   const parsed = fm(content as string);

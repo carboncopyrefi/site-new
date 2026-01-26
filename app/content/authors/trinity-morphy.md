@@ -2,7 +2,7 @@
 
 title: Trinity Morphy
 description: Co-founder based in Enugu, Nigeria
-mainImage: "/images/author-trinity-morphy.webp"
+mainImage: "/content/assets/author-trinity-morphy.webp"
 twitter: "https://x.com/TrinityMorphy?s=20"
 discord: "https://discordapp.com/users/953941548385583124"
 

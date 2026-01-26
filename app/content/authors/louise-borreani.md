@@ -2,7 +2,7 @@
 
 title: Louise Borreani
 description: Co-founder of Ecofrontiers
-mainImage: "/images/author-louise-borreani.jpg"
+mainImage: "/content/assets/author-louise-borreani.jpg"
 twitter: "https://x.com/LBorreani"
 linkedin: "https://www.linkedin.com/in/louise-borreani-887278203"
 

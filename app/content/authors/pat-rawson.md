@@ -2,7 +2,7 @@
 
 title: Pat Rawson
 description: Co-founder of Ecofrontiers
-mainImage: "/images/author-pat-rawson.jpg"
+mainImage: "/content/assets/author-pat-rawson.jpg"
 twitter: "https://x.com/papa_raw"
 linkedin: "https://www.linkedin.com/in/pat-rawson-48306867"
 

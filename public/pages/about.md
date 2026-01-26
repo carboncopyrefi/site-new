@@ -10,4 +10,4 @@ We are a data-first intelligence platform for the Web3 regenerative finance (ReF
 
 **Socials** - We're on [X](https://x.com/cc_refi_news), [Farcaster](https://warpcast.com/carboncopy-refi), [LinkedIn](https://www.linkedin.com/company/carbon-copy-news/), and [Telegram](https://t.me/carboncopyrefi). Follow us to get ReFi news and other great content directly to your feed.
 
-**ReFi News Feed** - Get the latest updates from ReFi by plugging into our [RSS feed](https://api.carboncopy.news/feed).
+<!-- **ReFi News Feed** - Get the latest updates from ReFi by plugging into our [RSS feed](https://api.carboncopy.news/feed). -->

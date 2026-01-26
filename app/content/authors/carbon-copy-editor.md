@@ -2,7 +2,7 @@
 
 title: Kent Babin
 description: Managing editor based in Southeast Asia
-mainImage: "/images/author-kent-babin.jpg"
+mainImage: "/content/assets/author-kent-babin.jpg"
 twitter: "https://x.com/kentbabin"
 
 ---

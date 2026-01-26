@@ -2,7 +2,7 @@
 
 title: CARBON Copy Team
 description: A group of passionate individuals from across the world.
-mainImage: "/images/icon_large.png"
+mainImage: "/content/assets/icon_large.png"
 twitter: "https://x.com/carboncopy_refi"
 email: "hello@carboncopy.news"
 

@@ -4,7 +4,7 @@ import routes from "../app/routes";
 import 'dotenv/config';
 
 const BASE_URL = process.env.VITE_CC_SITE_URL;
-const API_BASE = "https://api.carboncopy.news";
+const API_BASE = "https://carboncopy.pythonanywhere.com";
 
 // ----------------
 // Step 1: Extract static routes
