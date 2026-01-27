@@ -69,7 +69,7 @@ export const SdgBadges: React.FC<SdgBadgesProps> = ({
   return (
     <div className={`${baseClass} flex flex-wrap gap-2 items-center h-full`}>
       {sdgs.map((goal) => {
-        const goalPrefix = goal.value.split(" - ")[0];
+        const goalPrefix = goal.sdg.split(" - ")[0];
         const iconFilename = sdgIconMap[goalPrefix];
         const iconPath = iconFilename
           ? `/images/sdg/${iconFilename}`
@@ -77,12 +77,12 @@ export const SdgBadges: React.FC<SdgBadgesProps> = ({
 
         return (
           <div
-            key={goal.id}
+            key={goal.sort_id}
             className="flex flex-col items-center justify-center h-full max-h-full"
           >
             <img
               src={iconPath}
-              alt={goal.value}
+              alt={goal.sdg}
               className="object-contain max-h-full"
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).style.display = "none";

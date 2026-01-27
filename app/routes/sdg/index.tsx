@@ -2,8 +2,9 @@ import { buildMeta } from "~/root"
 import { useEffect, useState } from "react";
 import { apiFetch } from "../../api/client";
 import { H1 } from "~/components/ui/h1";
-import { SdgBadges } from "~/components/sdg-badges";
 import { Link } from "react-router-dom";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "~/components/ui/card";
+import { Button } from "~/components/ui/button";
 
 interface SdgMetric {
   name: string;
@@ -16,14 +17,38 @@ interface SdgMetric {
   percent_change_28d: number | null;
 }
 
+interface SdgMetricGroupType {
+  name: string;
+  description: string | null;
+  slug: string;
+}
+
+interface SdgMetricGroup {
+  type: SdgMetricGroupType;
+  metrics: SdgMetric[];
+}
+
 interface SdgData {
   name: string;
   description: string;
   slug: string;
-  metrics: SdgMetric[];
+  metric_groups: SdgMetricGroup[];
 }
 
 const url = "https://carboncopy.news/sdg";
+
+function formatMetricValue(value: number, format: string, unit: string | null): string {
+  // Parse format like "{:,.2f}" - assume it's always {:,.Xf} where X is digits
+  const decimalMatch = format.match(/\.(\d+)f/);
+  const decimals = decimalMatch ? parseInt(decimalMatch[1]) : 0;
+  
+  const formatted = value.toLocaleString('en-US', {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  });
+  
+  return unit ? `${formatted} ${unit}` : formatted;
+}
 
 export function links() {
   return [{ rel: "canonical", href: url }];
@@ -86,47 +111,52 @@ useEffect(() => {
     <div className="flex flex-1 flex-col gap-4 p-4 overflow-x-hidden relative">
       <H1>SDG Tracker</H1>
 
-      {/* 2 items per row grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+      {/* Grid of SDG cards */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-6">
         {sdg.map((goal) => (
-          <div
-            key={goal.slug}
-            className="relative overflow-hidden group"
-          >
-            {/* SDG badge */}
-            <SdgBadges
-              sdgs={[
-                {
-                  id: Number(goal.slug.split("-")[0]),
-                  value: goal.name,
-                },
-              ]}
-              layout="inline"
-              gap={2}
-            />
+          <Card key={goal.slug} className="flex flex-col">
+            <CardHeader>
+              <div className="flex items-start gap-4">
+                <img src={`/images/sdg/E-WEB-Goal-${goal.slug.split("-")[0].toString().padStart(2, '0')}.png`} alt={goal.name} className="w-30 h-full object-contain flex-shrink-0" />
+                <div className="flex flex-col">
+                  <CardTitle className="text-lg">{goal.name}</CardTitle>
+                  <CardDescription>{goal.description}</CardDescription>
+                </div>
+              </div>
+            </CardHeader>
 
-            {/* Slide-in overlay */}
-            <div
-              className="
-                absolute inset-0 
-                bg-white/90 backdrop-blur-sm
-                translate-x-[-100%]
-                group-hover:translate-x-0
-                transition-transform duration-400 ease-in-out
-                flex flex-col p-4
-              "
-            >
-              <p className="text-md text-gray-800">{goal.description}</p>
+            <CardContent className="flex-1">
+              {goal.metric_groups.length > 0 ? (
+                <div className="space-y-4">
+                  {goal.metric_groups.map((group, groupIndex) => (
+                    <div key={groupIndex}>
+                      {group.type.slug !== "uncategorized" && (
+                      <h4 className="font-medium text-sm text-gray-700 mb-2">{group.type.name}</h4>
+                      )}
+                      <div className="space-y-1">
+                        {group.metrics.map((metric, metricIndex) => (
+                          <div key={metricIndex} className="flex justify-between items-center text-sm">
+                            <span className="text-gray-600">{metric.name}</span>
+                            <span className="font-mono text-gray-900">
+                              {formatMetricValue(metric.value, metric.format, metric.unit)}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-sm text-gray-500">No metrics available</p>
+              )}
+            </CardContent>
 
-              <Link
-                to={`/sdg/${goal.slug}`}
-                className="inline-block border-2 border-gray-800 text-gray-800 text-md px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition mt-auto"
-              >
-                Explore data →
-              </Link>
-            </div>
-          </div>
-
+            <CardFooter>
+              <Button asChild className="w-full py-2 bg-white hover:bg-gray-700 text-gray-800 hover:text-white font-medium rounded-lg shadow border border-gray-800 transition">
+                <Link to={`/sdg/${goal.slug}`}>Explore Data</Link>
+              </Button>
+            </CardFooter>
+          </Card>
         ))}
       </div>
     </div>
