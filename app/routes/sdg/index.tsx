@@ -78,7 +78,7 @@ useEffect(() => {
       const cachedAt = localStorage.getItem("sdg_cache_time");
 
       // Optional: expire after 30 minutes
-      const maxAge = 10080 * 60 * 1000;
+      const maxAge = 30 * 60 * 1000;
 
       if (cached && cachedAt && Date.now() - Number(cachedAt) < maxAge) {
         setSdg(JSON.parse(cached));
