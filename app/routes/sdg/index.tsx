@@ -152,9 +152,11 @@ useEffect(() => {
             </CardContent>
 
             <CardFooter>
-              <Button asChild className="w-full py-2 bg-white hover:bg-gray-700 text-gray-800 hover:text-white font-medium rounded-lg shadow border border-gray-800 transition">
-                <Link to={`/sdg/${goal.slug}`}>Explore Data</Link>
-              </Button>
+              {goal.metric_groups.length > 0 && (
+                <Button asChild className="w-full py-2 bg-white hover:bg-gray-700 text-gray-800 hover:text-white font-medium rounded-lg shadow border border-gray-800 transition">
+                  <Link to={`/sdg/${goal.slug}`}>Explore Data</Link>
+                </Button>
+              )}
             </CardFooter>
           </Card>
         ))}
