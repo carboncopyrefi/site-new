@@ -7,7 +7,7 @@ date: "February 2nd, 2026"
 sortDate: 2026-02-02
 author: "Greenpill Writers Guild"
 authorSlug: "greenpill-writers-guild"
-status: false
+status: true
 ---
 
 For crypto natives, web3 tools are easy to use. So, what does it feel like when non-crypto people use these tools to boost ecological and social impact? We got stewards from ten ReFi communities to answer the question through their experiences. We hope these stories inform organisations currently building ReFi toolkits on features to avoid.
