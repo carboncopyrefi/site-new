@@ -7,7 +7,7 @@ date: "February 9th, 2026"
 sortDate: 2026-02-09
 author: "Greenpill Writers Guild"
 authorSlug: "greenpill-writers-guild"
-status: false
+status: true
 ---
 
 In the first two articles of the series, we explored the data we collected around challenges with web3 tooling for ReFi communities and we shared the harrowing experiences of these groups, with these tools, in the second article. For the last piece of the series, we have provided recommendations to builders on the problems faced – and shared workarounds, from stewards, on how to navigate the current tooling landscape.    
