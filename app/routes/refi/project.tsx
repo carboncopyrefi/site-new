@@ -5,6 +5,19 @@ import { ArrowUpCircle, ArrowDownCircle, ChevronDown, ChevronUp, Info } from "lu
 import { iconMap } from "~/components/icons"
 import { apiFetch } from "~/api/client";
 import { SdgBadges } from "~/components/sdg-badges";
+import {
+    CartesianGrid,
+    Line,
+    LineChart,
+    ResponsiveContainer,
+    XAxis,
+    YAxis,
+} from "recharts";
+import {
+    ChartContainer,
+    ChartTooltip,
+    ChartTooltipContent,
+} from "~/components/ui/chart";
 
 /** ---- Types you can extend as needed ---- */
 type ProjectLink = {
@@ -93,6 +106,7 @@ export default function ProjectPage() {
   const [showAll, setShowAll] = useState(false);
   const [open, setOpen] = useState(false);
   const [openId, setOpenId] = useState<string | null>(null);
+    const [selectedMetricIndex, setSelectedMetricIndex] = useState<number>(0);
 //   const [metrics, setMetrics] = useState<ProjectMetric | null>(null);
 
   useEffect(() => {
@@ -315,6 +329,49 @@ export default function ProjectPage() {
                                 </div>
                             </div>
                         ))}
+                        </div>
+                    )}
+
+                    {/* Chart for metrics */}
+                    {content?.impact?.length > 0 && (
+                        <div className="mt-6">
+                            <div className="flex gap-2 mb-3 overflow-x-auto">
+                                {content.impact.map((m: ProjectMetric, idx: number) => (
+                                    <button
+                                        key={`metric-toggle-${idx}`}
+                                        onClick={() => setSelectedMetricIndex(idx)}
+                                        className={`text-sm px-3 py-1 rounded-full whitespace-nowrap ${idx === selectedMetricIndex ? 'bg-blue-600 text-white' : 'bg-neutral-100 text-neutral-800'}`}
+                                    >
+                                        {m.name}
+                                    </button>
+                                ))}
+                            </div>
+
+                            {(() => {
+                                const selected = content.impact[selectedMetricIndex];
+                                const chartData = selected?.chart ?? [];
+                                if (!chartData || chartData.length === 0) return null;
+                                const rawKey = Object.keys(chartData[0]).find((k) => k !== "month") || "value";
+                                const safeKey = String(rawKey).replace(/\s+/g, "_");
+                                const transformed = chartData.map((row: any) => ({ ...row, [safeKey]: row[rawKey] }));
+                                const config = { [safeKey]: { label: selected.name, color: "var(--chart-1)" } };
+
+                                return (
+                                    <div className="h-64 rounded-lg bg-muted/50 p-2">
+                                        <ChartContainer config={config} className="w-full h-full relative">
+                                            <ResponsiveContainer width="100%" height="100%" minWidth={0}>
+                                                <LineChart data={transformed} margin={{ left: 12, right: 12, top: 8, bottom: 8 }}>
+                                                    <CartesianGrid vertical={false} />
+                                                    <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} />
+                                                    <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+                                                    <YAxis tickFormatter={(v) => v?.toLocaleString ? v.toLocaleString() : v} width={"auto"} />
+                                                    <Line dataKey={safeKey} type="monotone" stroke={`var(--color-${safeKey})`} strokeWidth={2} dot={false} />
+                                                </LineChart>
+                                            </ResponsiveContainer>
+                                        </ChartContainer>
+                                    </div>
+                                );
+                            })()}
                         </div>
                     )}
 
