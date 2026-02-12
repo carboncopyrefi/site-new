@@ -82,7 +82,7 @@ export default function CategoryPage() {
       <meta property="og:url" content={`https://carboncopy.news${location.pathname}`} />
       <meta property="og:type" content="website" />
       <meta property="og:locale" content="en_GB" />
-      <meta property="twitter:card" content="summary_large_card" />
+      <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:site" content="@cc_refi_news" />
       <link rel="canonical" href={`https://carboncopy.news${location.pathname}`} />
 
