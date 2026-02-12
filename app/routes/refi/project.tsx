@@ -5,6 +5,7 @@ import { ArrowUpCircle, ArrowDownCircle, ChevronDown, ChevronUp, Info } from "lu
 import { iconMap } from "~/components/icons"
 import { apiFetch } from "~/api/client";
 import { SdgBadges } from "~/components/sdg-badges";
+import { FundingDataset } from "~/components/funding-dataset";
 import {
     CartesianGrid,
     Line,
@@ -639,12 +640,7 @@ export default function ProjectPage() {
                             open={open}
                             onClose={() => setOpen(false)}
                             title="Grant Data"
-                            body={`Our dataset includes the following grant rounds:<br><br>
-                            Gitcoin Grants Beta, 18, 19, 20, 21, 22, 23<br>
-                            Octant (Epoch 6 & 7)<br>
-                            RetroPGF (Round 4)<br>
-                            Octant Community Fund<br>
-                            Giveth Cumulative (QF matching + donations)`}
+                            body={FundingDataset}
                         />
                     </>
                 </div>

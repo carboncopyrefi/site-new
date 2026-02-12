@@ -22,7 +22,7 @@ export async function getSidebarData(): Promise<SidebarData> {
     navMain: [
       { title: "Home", url: "/", isCollapsible: false },
       {
-        title: "Impact",
+        title: "Impact Data",
         url: "/impact",
         isCollapsible: true,
         items: [...dynamicItems, { title: "Projects", url: "/projects" }],
@@ -40,7 +40,7 @@ export async function getSidebarData(): Promise<SidebarData> {
           { title: "Projects", url: "/projects" },
           { title: "Tokens", url: "/tokens" },
           { title: "News", url: "/news" },
-          { title: "Venture Funding", url: "/venture-funding" },
+          { title: "Funding", url: "/funding" },
         ],
       },
       {

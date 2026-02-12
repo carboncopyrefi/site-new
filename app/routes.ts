@@ -33,7 +33,7 @@ export default [
 		route("projects/:slug", "routes/refi/project.tsx"),
 		route("categories/:slug", "routes/refi/category.tsx"),
 		route("tokens", "routes/refi/tokens.tsx"),
-		route("venture-funding", "routes/refi/venture-funding.tsx"),
+		route("funding", "routes/refi/venture-funding.tsx"),
 		route("news", "routes/refi/news.tsx"),
 	]),
 	// 👇 Catch-all 404 route

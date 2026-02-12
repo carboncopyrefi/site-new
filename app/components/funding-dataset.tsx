@@ -1,0 +1,1 @@
+export const FundingDataset = "Our dataset includes the following public goods funding sources:<br><br>Gitcoin Grants Beta, 18, 19, 20, 21, 22, 23<br>Octant (Epoch 6 & 7, Community Fund)<br>Optimism RetroPGF (Round 4)<br>Giveth (QF matching + donations)<br>Celo Public Goods<br>Public Nouns<br>Stellar Community Fund";

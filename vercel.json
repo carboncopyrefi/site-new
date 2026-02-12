@@ -139,6 +139,11 @@
       "source": "/reports/(.*)/",
       "destination": "/content/reports",
       "permanent": true
+    },
+    {
+      "source": "/venture-funding",
+      "destination": "/funding",
+      "permanent": true
     }
   ]
 }
