@@ -41,8 +41,8 @@ export default function Overview() {
   const [overview, setOverview] = useState<any>(null);
 
   useEffect(() => {
-    fetch("https://api.carboncopy.news/impact/feed")
-      .then((res) => res.json())
+    apiFetch("/impact/feed")
+      .then((res) => res)
       .then((data) => setActivity(data))
       .catch((err) => console.error("Error loading feed:", err));
     
@@ -317,16 +317,16 @@ export default function Overview() {
               <tr className="border-b">
                 <th className="p-2">Title</th>
                 <th className="p-2">Project</th>
-                <th className="p-2">Completion Date</th>
+                <th className="p-2">Posted Date</th>
                 <th className="p-2">Details</th>
               </tr>
             </thead>
             <tbody>
               {activity.map((item) => (
                 <tr key={item.id} className="border-b hover:bg-muted/30">
-                  <td className="p-2">{item.name}</td>
-                  <td className="p-2">{item.metric}</td>
-                  <td className="p-2">{item.date}</td>
+                  <td className="p-2">{item.title}</td>
+                  <td className="p-2">{item.project}</td>
+                  <td className="p-2">{item.created_date}</td>
                   <td className="p-2">
                     <button
                       onClick={() => setSelectedDetail(item.details)}
