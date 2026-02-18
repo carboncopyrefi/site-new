@@ -222,7 +222,7 @@ export default function Funding() {
                   <tr className="text-left">
                     <th className="py-1">Project</th>
                     <th className="py-1 text-right">Total {title}</th>
-                    <th className="py-1 text-right">Deals</th>
+                    <th className="py-1 text-right">{title === "PGF" ? "Funding Events" : "Deals"}</th>
                   </tr>
                 </thead>
                 <tbody>
