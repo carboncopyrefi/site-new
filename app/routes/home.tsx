@@ -4,7 +4,6 @@ import { Info, ArrowUpCircle, ArrowDownCircle } from "lucide-react";
 import { buildMeta } from "~/root"
 import { apiFetch } from "../api/client";
 import { H1 } from "~/components/ui/h1";
-import { Link } from "react-router-dom";
 import {
   LineChart,
   Line,
@@ -62,7 +61,6 @@ export default function Overview() {
     <div className="flex flex-1 flex-col gap-4 p-4">
       	<div className="flex bg-green-200 shadow rounded-md p-3 mb-4 justify-between items-center">
           <p>We've made the difficult decision to sunset CARBON Copy. A huge thank-you to everyone that has supported us for the last nearly 3 years. The site will remain online for the foreseeable future, but we will not continue to update the data.</p>
-          <Link className="text-center items-center rounded-md bg-green-700 text-white font-medium py-2 px-4 hover:bg-green-800 transition" to="https://giveth.io/donate/carbon-copy-0?roundId=21" target="_blank">Contribute</Link>
 			  </div>
       <H1>
         Impact Overview
